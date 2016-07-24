@@ -1,0 +1,53 @@
+<!-- 
+TODO:
+Make a chair that gives joy based on beauty around it. TickRare() + IterateRadius(349)
+impassible hedges
+hedge maze activity?
+
+-->
+
+14.00:
+Updated to A14
+
+
+<!-- Alpha 13 and lesser versions -->
+
+v1.30:
+Requires corePanda 13.2
+Moved gravel to corePanda
+Fixed cross-mod naming conflicts
+
+v1.21:
+replaced missing base reference
+
+v1.20:
+Added hedges
+Added flower arch
+
+v1.10:
+updated to a13
+
+v1.01:
+Removed gravel from stacked rocks recipe
+Fixed curved gravel description
+
+v1.00:
+Graphics redraw
+Code cleanup
+Added curved gravel
+Added normal gravel
+Sped up pawn movement when walking on gravel and paths
+
+v0.13:
+Updated to alpha 12d
+
+v0.12:
+Fixed Border Path/Pond rendering issue
+Added rocks to Stacked Rocks
+Updated graphics
+
+v0.11:
+Added missing recipe for gravel 
+
+v0.10: 
+Initial release. Added Gravel, Border Path, Border Pond, Border Path Pillar, Gravel Floor, and Stacked Rocks.

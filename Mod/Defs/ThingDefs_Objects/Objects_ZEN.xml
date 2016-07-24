@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+	<ThingDef Name="BuildingBase" Abstract="True">
+		<category>Building</category>
+		<thingClass>Building</thingClass>
+		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<filthLeaving>BuildingRubble</filthLeaving>
+	</ThingDef>
+
+
+	<ThingDef Name="zenBase" ParentName="BuildingBase" Abstract="True">
+		<graphicData>
+			<shaderType>CutoutComplex</shaderType>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<altitudeLayer>Terrain</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>25</pathCost>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0</fillPercent>
+		<useHitPoints>false</useHitPoints>
+		<coversFloor>true</coversFloor>
+		<statBases>
+			<Beauty>5</Beauty>
+			<Flammability>0</Flammability>
+		</statBases>
+		<building>
+			<isInert>true</isInert>
+			<ignoreNeedsPower>true</ignoreNeedsPower>
+		</building>
+		<rotatable>false</rotatable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<designationCategory>Floors</designationCategory>
+		<holdsRoof>false</holdsRoof>
+		<blockLight>false</blockLight>
+	</ThingDef>
+
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>ZEN_FlowerArch</defName>
+		<label>flower arch</label>
+		<Description>A decorative arch for passing through. Also makes a popular wedding spot.</Description>
+		<graphicData>
+			<texPath>Cupro/Object/Misc/FlowerArch</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>false</rotatable>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+		</statBases>
+		<useHitPoints>False</useHitPoints>
+		<Size>(2,1)</Size>
+		<DesignationCategory>Misc</DesignationCategory>
+		<Passability>Standable</Passability>
+		<building>
+			<sowTag>SupportPlantsOnly</sowTag>
+			<canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+		</building>
+	</ThingDef>
+
+
+
+	<ThingDef ParentName="zenBase">
+		<defName>ZEN_BorderPath</defName>
+		<label>border path</label>
+		<description>A nice border for a walkway, path, or rock garden.</description>
+		<graphicData>
+			<texPath>Cupro/Terrain/Linked/BorderPath</texPath>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Custom4</li>
+			</linkFlags>
+		</graphicData>
+		<blueprintGraphicData>
+			<texPath>Cupro/Terrain/Linked/BorderPathBlueprint</texPath>
+		</blueprintGraphicData>
+		<uiIconPath>Cupro/Terrain/Linked/BorderPathIcon</uiIconPath>
+		<statBases>
+			<WorkToMake>180</WorkToMake>
+		</statBases>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>4</costStuffCount>
+		<costList>
+			<CP_Gravel>4</CP_Gravel>
+		</costList>
+	</ThingDef>
+
+	<ThingDef ParentName="zenBase">
+		<defName>ZEN_BorderPond</defName>
+		<label>border pond</label>
+		<description>A border path filled with a small amount of water. Very relaxing.</description>
+		<graphicData>
+			<texPath>Cupro/Terrain/Linked/BorderPond</texPath>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Custom5</li>
+			</linkFlags>
+		</graphicData>
+		<blueprintGraphicData>
+			<texPath>Cupro/Terrain/Linked/BorderPathBlueprint</texPath>
+		</blueprintGraphicData>
+		<uiIconPath>Cupro/Terrain/Linked/BorderPondIcon</uiIconPath>
+		<statBases>
+			<WorkToMake>180</WorkToMake>
+		</statBases>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>6</costStuffCount>
+		<costList>
+			<CP_Gravel>2</CP_Gravel>
+		</costList>
+	</ThingDef>
+
+	<ThingDef ParentName="zenBase">
+		<defName>ZEN_Hedge</defName>
+		<label>hedge</label>
+		<description>A highly resilient shrubbery with festive flowers.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Misc/Hedge/HedgeAtlas</texPath>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Sandbags</li>
+			</linkFlags>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<blueprintGraphicData>
+			<texPath>Cupro/Object/Misc/Hedge/HedgeBlueprint</texPath>
+		</blueprintGraphicData>
+		<uiIconPath>Cupro/Object/Misc/Hedge/HedgeIcon</uiIconPath>
+		<statBases>
+			<WorkToMake>180</WorkToMake>
+		</statBases>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<costList>
+			<WoodLog>3</WoodLog>
+		</costList>
+	</ThingDef>
+
+	<ThingDef ParentName="zenBase">
+		<defName>ZEN_StackedRocks</defName>
+		<label>stacked rocks</label>
+		<description>Rocks that are stacked on top of each other. Conveys a sense of balance.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Misc/StackedRocks/StackedRocks</texPath>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<uiIconPath>Cupro/Object/Misc/StackedRocks/StackedRocks</uiIconPath>
+		<pathCost>70</pathCost>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Beauty>20</Beauty>
+			<WorkToMake>1000</WorkToMake>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>20</costStuffCount>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>ZEN_GravelCurve</defName>
+		<label>curved gravel</label>
+		<description>Gravel flooring that has been raked in a curve.</description>
+		<graphicData>
+			<texPath>Cupro/Terrain/GravelCurve</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<altitudeLayer>Terrain</altitudeLayer>
+		<passability>Standable</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0</fillPercent>
+		<useHitPoints>false</useHitPoints>
+		<coversFloor>true</coversFloor>
+		<building>
+			<isInert>true</isInert>
+			<ignoreNeedsPower>true</ignoreNeedsPower>
+		</building>
+		<neverMultiSelect>true</neverMultiSelect>
+		<designationCategory>Floors</designationCategory>
+		<holdsRoof>false</holdsRoof>
+		<blockLight>false</blockLight>
+		<pathCost>15</pathCost>
+		<rotatable>true</rotatable>
+		<statBases>
+			<Beauty>5</Beauty>
+			<WorkToMake>50</WorkToMake>
+			<Flammability>0</Flammability>
+		</statBases>
+		<costList>
+			<CP_Gravel>5</CP_Gravel>
+		</costList>
+	</ThingDef>
+
+
+
+	<ThingDef ParentName="zenBase">
+		<defName>ZEN_bpPillar</defName>
+		<label>border path pillar</label>
+		<description>An ornate pillar with an over-sized cap. Can be used to support roofs.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Misc/BorderPathPillar/BorderPathPillar</texPath>
+			<shadowData>
+				<volume>(0.5, 1, 0.5)</volume>
+			</shadowData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<fillPercent>0.75</fillPercent>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Beauty>10</Beauty>
+			<WorkToMake>1000</WorkToMake>
+		</statBases>
+		<coversFloor>true</coversFloor>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>60</costStuffCount>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<blockLight>true</blockLight>
+		<blockWind>true</blockWind>
+	</ThingDef>
+
+
+
+</ThingDefs>
+
+
+
+
+
+

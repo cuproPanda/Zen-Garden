@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Zen Garden</name>
+  <author>cuproPanda</author>
+  <url>https://ludeon.com/forums/index.php?topic=13400.0</url>
+  <targetVersion>0.14.1241</targetVersion>
+  <description>(Load after CorePanda 14.00+) \n Adds decorative zen garden stuff.</description>
+</ModMetaData>
