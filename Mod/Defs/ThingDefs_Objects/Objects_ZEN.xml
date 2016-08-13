@@ -45,7 +45,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>ZEN_FlowerArch</defName>
 		<label>flower arch</label>
-		<Description>A decorative arch for passing through. Also makes a popular wedding spot.</Description>
+		<Description>A decorative arch for passing through. Also goes well with a marriage spot.</Description>
 		<graphicData>
 			<texPath>Cupro/Object/Misc/FlowerArch</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
