@@ -7,7 +7,7 @@
 			<li>Heavy</li>
 		</affordances>
 		<layerable>true</layerable>
-		<designationCategory>Floors</designationCategory>
+		<designationCategory>ZEN_Decoration</designationCategory>
 		<RenderPrecedence>150</RenderPrecedence>
 		<EdgeType>Hard</EdgeType>
 		<PathCost>15</PathCost>
@@ -32,11 +32,13 @@
 		<texturePath>Cupro/Terrain/GravelRough</texturePath>
 		<statBases>
 			<Beauty>1</Beauty>
+			<Cleanliness>-1</Cleanliness>
 		</statBases>
 		<EdgeType>FadeRough</EdgeType>
 		<avoidWander>false</avoidWander>
 		<RenderPrecedence>221</RenderPrecedence>
-		<PathCost>5</PathCost>
+		<PathCost>2</PathCost>
+		<ScatterType>Rocky</ScatterType>
 		<tags>
 			<li>Road</li>
 		</tags>
@@ -49,9 +51,9 @@
 			<Beauty>2</Beauty>
 		</statBases>
 		<RenderPrecedence>222</RenderPrecedence>
-		<!-- This tag is used to allow the PlaceWorker to distinguish it without 
-			   needing to check multiple defs every time raked gravel is placed -->
 		<tags>
+			<!-- This tag is used to allow the PlaceWorker to distinguish it without 
+			needing to check multiple defs every time raked gravel is placed -->
 			<li>UnrakedGravel</li>
 		</tags>
 	</TerrainDef>	

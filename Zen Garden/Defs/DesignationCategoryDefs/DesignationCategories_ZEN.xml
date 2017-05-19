@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+   <DesignationCategoryDef>
+    <DefName>ZEN_Decoration</DefName>
+    <label>Decoration</label>
+    <description>Zen garden decorations.</description>
+    <order>107</order>
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_PlanAdd</li>
+      <li>Designator_PlanRemove</li> 
+      <li>Designator_SmoothFloor</li>
+      <li>Designator_RemoveFloor</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>  
+  
+</Defs>

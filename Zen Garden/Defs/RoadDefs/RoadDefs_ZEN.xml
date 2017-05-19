@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<RoadDef Name="GravelPathBase" Abstract="True">
+		<priority>2</priority>
+		<movementCostMultiplier>0.5</movementCostMultiplier>
+		<tilesPerSegment>15</tilesPerSegment>
+		<pathingMode>Avoid</pathingMode>
+		<distortionFrequency>0.25</distortionFrequency>
+		<distortionIntensity>0.2</distortionIntensity>
+		<worldRenderSteps>
+			<li>
+				<layer>Outline</layer>
+				<width>0.35</width>
+			</li>
+			<li>
+				<layer>ZEN_GravelPathWorldLayer</layer>
+				<width>0.3</width>
+			</li>
+		</worldRenderSteps>
+		<worldTransitionGroup>Dirt</worldTransitionGroup>
+	</RoadDef>
+
+	<RoadDef ParentName="GravelPathBase">
+		<defName>ZEN_GravelPathSandstone</defName>
+		<label>sandstone gravel path</label>
+		<roadGenSteps>
+			<li Class="RoadDefGenStep_Place">
+				<chancePerPositionCurve>
+					<points>
+						<li>(0, 0.9)</li>
+						<li>(0.6, 0.8)</li>
+						<li>(0.8, 0)</li>
+					</points>
+				</chancePerPositionCurve>
+				<place>ZEN_GravelRoughSandstone</place>
+			</li>
+		</roadGenSteps>
+	</RoadDef>
+	
+	<RoadDef ParentName="GravelPathBase">
+		<defName>ZEN_GravelPathGranite</defName>
+		<label>granite gravel path</label>
+		<roadGenSteps>
+			<li Class="RoadDefGenStep_Place">
+				<chancePerPositionCurve>
+					<points>
+						<li>(0, 0.9)</li>
+						<li>(0.6, 0.8)</li>
+						<li>(0.8, 0)</li>
+					</points>
+				</chancePerPositionCurve>
+				<place>ZEN_GravelRoughGranite</place>
+			</li>
+		</roadGenSteps>
+	</RoadDef>
+	
+	<RoadDef ParentName="GravelPathBase">
+		<defName>ZEN_GravelPathLimestone</defName>
+		<label>limestone gravel path</label>
+		<roadGenSteps>
+			<li Class="RoadDefGenStep_Place">
+				<chancePerPositionCurve>
+					<points>
+						<li>(0, 0.9)</li>
+						<li>(0.6, 0.8)</li>
+						<li>(0.8, 0)</li>
+					</points>
+				</chancePerPositionCurve>
+				<place>ZEN_GravelRoughLimestone</place>
+			</li>
+		</roadGenSteps>
+	</RoadDef>
+	
+	<RoadDef ParentName="GravelPathBase">
+		<defName>ZEN_GravelPathSlate</defName>
+		<label>slate gravel path</label>
+		<roadGenSteps>
+			<li Class="RoadDefGenStep_Place">
+				<chancePerPositionCurve>
+					<points>
+						<li>(0, 0.9)</li>
+						<li>(0.6, 0.8)</li>
+						<li>(0.8, 0)</li>
+					</points>
+				</chancePerPositionCurve>
+				<place>ZEN_GravelRoughSlate</place>
+			</li>
+		</roadGenSteps>
+	</RoadDef>
+	
+	<RoadDef ParentName="GravelPathBase">
+		<defName>ZEN_GravelPathMarble</defName>
+		<label>marble gravel path</label>
+		<roadGenSteps>
+			<li Class="RoadDefGenStep_Place">
+				<chancePerPositionCurve>
+					<points>
+						<li>(0, 0.9)</li>
+						<li>(0.6, 0.8)</li>
+						<li>(0.8, 0)</li>
+					</points>
+				</chancePerPositionCurve>
+				<place>ZEN_GravelRoughMarble</place>
+			</li>
+		</roadGenSteps>
+	</RoadDef>
+
+</Defs>

@@ -50,7 +50,7 @@
 		</building>
 		<rotatable>false</rotatable>
 		<neverMultiSelect>true</neverMultiSelect>
-		<designationCategory>Floors</designationCategory>
+		<designationCategory>ZEN_Decoration</designationCategory>
 		<holdsRoof>false</holdsRoof>
 		<blockLight>false</blockLight>
 	</ThingDef>
@@ -71,7 +71,7 @@
 		</building>
 		<rotatable>false</rotatable>
 		<neverMultiSelect>true</neverMultiSelect>
-		<designationCategory>Floors</designationCategory>
+		<designationCategory>ZEN_Decoration</designationCategory>
 		<holdsRoof>false</holdsRoof>
 		<blockLight>false</blockLight>
 		<pathCost>15</pathCost>
@@ -222,21 +222,29 @@
 	<ThingDef ParentName="zenBase">
 		<defName>ZEN_Hedge</defName>
 		<label>hedge</label>
-		<description>A highly resilient shrubbery with festive flowers. Does not block paths.</description>
+		<description>An artificial shrubbery with festive flowers. Does not block paths.</description>
 		<graphicData>
 			<texPath>Cupro/Object/Linked/Hedge/HedgeAtlas</texPath>
+			<shadowData>
+				<volume>(1, 0.25, 1)</volume>
+			</shadowData>
 			<linkType>Basic</linkType>
 			<linkFlags>
 				<li>Sandbags</li>
 			</linkFlags>
 		</graphicData>
+		<pathCost>45</pathCost>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.1</fillPercent>
 		<altitudeLayer>Building</altitudeLayer>
 		<blueprintGraphicData>
 			<texPath>Cupro/Object/Linked/Hedge/HedgeBlueprint</texPath>
 		</blueprintGraphicData>
 		<uiIconPath>Cupro/Object/Linked/Hedge/HedgeIcon</uiIconPath>
 		<statBases>
-			<WorkToBuild>180</WorkToBuild>
+			<WorkToBuild>400</WorkToBuild>
+			<Beauty>3</Beauty>
+			<Flammability>1</Flammability>
 		</statBases>
 		<placingDraggableDimensions>1</placingDraggableDimensions>
 		<costList>
