@@ -234,7 +234,6 @@
 			</linkFlags>
 		</graphicData>
 		<pathCost>45</pathCost>
-		<castEdgeShadows>true</castEdgeShadows>
 		<fillPercent>0.1</fillPercent>
 		<altitudeLayer>Building</altitudeLayer>
 		<blueprintGraphicData>
