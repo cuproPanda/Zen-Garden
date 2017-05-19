@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+	<ThingDef Name="BuildingBase" Abstract="True">
+		<category>Building</category>
+		<thingClass>Building</thingClass>
+		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<filthLeaving>BuildingRubble</filthLeaving>
+	</ThingDef>
+
+	<ThingDef Name="FurnitureBase" ParentName="BuildingBase" Abstract="True">
+		<comps>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+		<DesignationCategory>Furniture</DesignationCategory>
+		<minifiedDef>MinifiedFurniture</minifiedDef>
+		<tradeTags>
+			<li>Furniture</li>
+		</tradeTags>
+	</ThingDef>
+
+
+	<ThingDef Name="zenBase" ParentName="BuildingBase" Abstract="True">
+		<graphicData>
+			<shaderType>CutoutComplex</shaderType>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<altitudeLayer>Terrain</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>25</pathCost>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0</fillPercent>
+		<useHitPoints>false</useHitPoints>
+		<coversFloor>true</coversFloor>
+		<statBases>
+			<Beauty>5</Beauty>
+			<Flammability>0</Flammability>
+		</statBases>
+		<building>
+			<isInert>true</isInert>
+			<ignoreNeedsPower>true</ignoreNeedsPower>
+		</building>
+		<rotatable>false</rotatable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<designationCategory>Floors</designationCategory>
+		<holdsRoof>false</holdsRoof>
+		<blockLight>false</blockLight>
+	</ThingDef>
+
+	<ThingDef Name="RakedBase" ParentName="BuildingBase" Abstract="True">
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<altitudeLayer>Terrain</altitudeLayer>
+		<passability>Standable</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0</fillPercent>
+		<useHitPoints>false</useHitPoints>
+		<coversFloor>true</coversFloor>
+		<building>
+			<isInert>true</isInert>
+			<ignoreNeedsPower>true</ignoreNeedsPower>
+		</building>
+		<rotatable>false</rotatable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<designationCategory>Floors</designationCategory>
+		<holdsRoof>false</holdsRoof>
+		<blockLight>false</blockLight>
+		<pathCost>15</pathCost>
+		<statBases>
+			<Beauty>3</Beauty>
+			<WorkToBuild>250</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<placeWorkers>
+			<li>ZenGarden.PlaceWorker_OnRakeableGravel</li>
+		</placeWorkers>
+	</ThingDef>
+
+
+
+
+
+
+
+	<ThingDef ParentName="FurnitureBase">
+		<defName>ZEN_ScenicBench</defName>
+		<label>scenic bench</label>
+		<description>A simple bench for colonists to observe the surrounding beauty.</description>
+		<graphicData>
+			<texPath>Cupro/Object/ScenicBench</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shadowData>
+				<volume>(0.3, 0.6, 0.3)</volume>
+			</shadowData>
+			<damageData>
+				<rectN>(0.125,0.296875,0.734375,0.421875)</rectN>
+				<rectS>(0.125,0.296875,0.734375,0.421875)</rectS>
+				<rectE>(0.234375,0.296875,0.5,0.546875)</rectE>
+				<rectW>(0.234375,0.296875,0.5,0.546875)</rectW>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToBuild>750</WorkToBuild>
+			<Mass>3</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>1</Beauty>
+			<Comfort>0.5</Comfort>
+		</statBases>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>15</costStuffCount>
+		<pathCost>30</pathCost>
+		<fillPercent>0.30</fillPercent>
+		<building>
+			<isSittable>true</isSittable>
+		</building>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>ZEN_FlowerArch</defName>
+		<label>flower arch</label>
+		<Description>A decorative arch for passing through. Also goes well with a marriage spot.</Description>
+		<graphicData>
+			<texPath>Cupro/Object/FlowerArch</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>false</rotatable>
+		<statBases>
+			<WorkToBuild>200</WorkToBuild>
+		</statBases>
+		<useHitPoints>False</useHitPoints>
+		<Size>(2,1)</Size>
+		<DesignationCategory>Misc</DesignationCategory>
+		<Passability>Standable</Passability>
+		<building>
+			<sowTag>SupportPlantsOnly</sowTag>
+			<canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+		</building>
+	</ThingDef>
+
+
+
+	<ThingDef ParentName="zenBase">
+		<defName>ZEN_BorderPath</defName>
+		<label>border path</label>
+		<description>A nice border for a walkway, path, or rock garden.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Linked/BorderPath</texPath>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Custom4</li>
+			</linkFlags>
+		</graphicData>
+		<blueprintGraphicData>
+			<texPath>Cupro/Object/Linked/BorderPathBlueprint</texPath>
+		</blueprintGraphicData>
+		<uiIconPath>Cupro/Object/Linked/BorderPathIcon</uiIconPath>
+		<statBases>
+			<WorkToBuild>180</WorkToBuild>
+		</statBases>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>8</costStuffCount>
+	</ThingDef>
+
+	<ThingDef ParentName="zenBase">
+		<defName>ZEN_BorderPond</defName>
+		<label>border pond</label>
+		<description>A border path filled with a small amount of water. Very relaxing.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Linked/BorderPond</texPath>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Custom5</li>
+			</linkFlags>
+		</graphicData>
+		<blueprintGraphicData>
+			<texPath>Cupro/Object/Linked/BorderPathBlueprint</texPath>
+		</blueprintGraphicData>
+		<uiIconPath>Cupro/Object/Linked/BorderPondIcon</uiIconPath>
+		<statBases>
+			<WorkToBuild>180</WorkToBuild>
+		</statBases>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>8</costStuffCount>
+	</ThingDef>
+
+	<ThingDef ParentName="zenBase">
+		<defName>ZEN_Hedge</defName>
+		<label>hedge</label>
+		<description>A highly resilient shrubbery with festive flowers. Does not block paths.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Linked/Hedge/HedgeAtlas</texPath>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Sandbags</li>
+			</linkFlags>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<blueprintGraphicData>
+			<texPath>Cupro/Object/Linked/Hedge/HedgeBlueprint</texPath>
+		</blueprintGraphicData>
+		<uiIconPath>Cupro/Object/Linked/Hedge/HedgeIcon</uiIconPath>
+		<statBases>
+			<WorkToBuild>180</WorkToBuild>
+		</statBases>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<costList>
+			<WoodLog>3</WoodLog>
+		</costList>
+	</ThingDef>
+
+	<ThingDef ParentName="zenBase">
+		<defName>ZEN_StackedRocks</defName>
+		<label>stacked rocks</label>
+		<description>Rocks that are stacked on top of each other. Conveys a sense of balance.</description>
+		<graphicData>
+			<texPath>Cupro/Object/StackedRocks/StackedRocks</texPath>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<uiIconPath>Cupro/Object/StackedRocks/StackedRocks</uiIconPath>
+		<pathCost>70</pathCost>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Beauty>20</Beauty>
+			<WorkToBuild>1000</WorkToBuild>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>20</costStuffCount>
+	</ThingDef>
+
+	<ThingDef ParentName="RakedBase">
+		<defName>ZEN_GravelCurve</defName>
+		<label>curved gravel</label>
+		<description>Gravel flooring that has been raked in a curve.</description>
+		<graphicData>
+			<texPath>Cupro/Object/GravelCurve</texPath>
+		</graphicData>
+		<uiIconPath>Cupro/Object/GravelCurve_MenuIcon</uiIconPath>
+		<rotatable>true</rotatable>
+	</ThingDef>
+
+	<ThingDef ParentName="RakedBase">
+		<defName>ZEN_GravelHoriz</defName>
+		<label>horizontal gravel</label>
+		<description>Gravel flooring that has been raked in a horizontal pattern.</description>
+		<graphicData>
+			<texPath>Cupro/Object/GravelHoriz</texPath>
+		</graphicData>
+		<uiIconPath>Cupro/Object/GravelHoriz_MenuIcon</uiIconPath>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+	</ThingDef>
+
+	<ThingDef ParentName="RakedBase">
+		<defName>ZEN_GravelVert</defName>
+		<label>vertical gravel</label>
+		<description>Gravel flooring that has been raked in a vertical pattern.</description>
+		<graphicData>
+			<texPath>Cupro/Object/GravelVert</texPath>
+		</graphicData>
+		<uiIconPath>Cupro/Object/GravelVert_MenuIcon</uiIconPath>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+	</ThingDef>
+
+
+
+	<ThingDef ParentName="zenBase">
+		<defName>ZEN_bpPillar</defName>
+		<label>border path pillar</label>
+		<description>An ornate pillar with an over-sized cap. Can be used to support roofs.</description>
+		<graphicData>
+			<texPath>Cupro/Object/BorderPathPillar/BorderPathPillar</texPath>
+			<shadowData>
+				<volume>(0.5, 1, 0.5)</volume>
+			</shadowData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<fillPercent>0.75</fillPercent>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Beauty>10</Beauty>
+			<WorkToBuild>1000</WorkToBuild>
+		</statBases>
+		<coversFloor>true</coversFloor>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>60</costStuffCount>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<blockLight>true</blockLight>
+		<blockWind>true</blockWind>
+	</ThingDef>
+
+
+
+</ThingDefs>
+
+
+
+
+
+

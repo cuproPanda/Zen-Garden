@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TerrainDefs>
+
+	<TerrainDef Name="GravelFloorBase" Abstract="True">
+		<affordances>
+			<li>Light</li>
+			<li>Heavy</li>
+		</affordances>
+		<layerable>true</layerable>
+		<designationCategory>Floors</designationCategory>
+		<RenderPrecedence>150</RenderPrecedence>
+		<EdgeType>Hard</EdgeType>
+		<PathCost>15</PathCost>
+		<acceptFilth>false</acceptFilth>
+		<avoidWander>true</avoidWander>
+		<takeFootprints>false</takeFootprints>
+		<holdSnow>true</holdSnow>
+		<statBases>
+			<WorkToBuild>150</WorkToBuild>
+		</statBases>
+		<!-- The stone is broken into gravel, so it shouldn't yield usable blocks -->
+		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+		<Fertility>0</Fertility>
+		<AcceptTerrainSourceFilth>false</AcceptTerrainSourceFilth>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+	</TerrainDef>
+
+	<!--========== Low-Level Bases ==========-->
+
+	<TerrainDef Name="RoughBase" ParentName="GravelFloorBase" Abstract="True">
+		<description>Rough gravel flooring made for paths.</description>
+		<texturePath>Cupro/Terrain/GravelRough</texturePath>
+		<statBases>
+			<Beauty>1</Beauty>
+		</statBases>
+		<EdgeType>FadeRough</EdgeType>
+		<avoidWander>false</avoidWander>
+		<RenderPrecedence>221</RenderPrecedence>
+		<PathCost>5</PathCost>
+		<tags>
+			<li>Road</li>
+		</tags>
+	</TerrainDef>	
+
+	<TerrainDef Name="NormalBase" ParentName="GravelFloorBase" Abstract="True">
+		<description>Gravel flooring that can be raked into various patterns.</description>
+		<texturePath>Cupro/Terrain/GravelNorm</texturePath>
+		<statBases>
+			<Beauty>2</Beauty>
+		</statBases>
+		<RenderPrecedence>222</RenderPrecedence>
+		<!-- This tag is used to allow the PlaceWorker to distinguish it without 
+			   needing to check multiple defs every time raked gravel is placed -->
+		<tags>
+			<li>UnrakedGravel</li>
+		</tags>
+	</TerrainDef>	
+
+	<!--========== Base Inheritors ==========-->
+
+	<TerrainDef ParentName="RoughBase">
+		<DefName>ZEN_GravelRoughSandstone</DefName>
+		<label>rough sandstone gravel</label>
+		<color>(126,104,94)</color>
+		<CostList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</CostList>
+	</TerrainDef>	
+	<TerrainDef ParentName="RoughBase">
+		<DefName>ZEN_GravelRoughGranite</DefName>
+		<label>rough granite gravel</label>
+		<color>(105,95,97)</color>
+		<CostList>
+			<BlocksGranite>4</BlocksGranite>
+		</CostList>
+	</TerrainDef>	
+	<TerrainDef ParentName="RoughBase">
+		<DefName>ZEN_GravelRoughLimestone</DefName>
+		<label>rough limestone gravel</label>
+		<color>(158,153,135)</color>
+		<CostList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</CostList>
+	</TerrainDef>	
+	<TerrainDef ParentName="RoughBase">
+		<DefName>ZEN_GravelRoughSlate</DefName>
+		<label>rough slate gravel</label>
+		<color>(70,70,70)</color>
+		<CostList>
+			<BlocksSlate>4</BlocksSlate>
+		</CostList>
+	</TerrainDef>	
+	<TerrainDef ParentName="RoughBase">
+		<DefName>ZEN_GravelRoughMarble</DefName>
+		<label>rough marble gravel</label>
+		<color>(132,135,132)</color>
+		<CostList>
+			<BlocksMarble>4</BlocksMarble>
+		</CostList>
+	</TerrainDef>	
+
+
+
+	<TerrainDef ParentName="NormalBase">
+		<DefName>ZEN_GravelNormalSandstone</DefName>
+		<label>unraked sandstone gravel</label>
+		<color>(126,104,94)</color>
+		<CostList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</CostList>
+	</TerrainDef>	
+	<TerrainDef ParentName="NormalBase">
+		<DefName>ZEN_GravelNormalGranite</DefName>
+		<label>unraked granite gravel</label>
+		<color>(105,95,97)</color>
+		<CostList>
+			<BlocksGranite>4</BlocksGranite>
+		</CostList>
+	</TerrainDef>	
+	<TerrainDef ParentName="NormalBase">
+		<DefName>ZEN_GravelNormalLimestone</DefName>
+		<label>unraked limestone gravel</label>
+		<color>(158,153,135)</color>
+		<CostList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</CostList>
+	</TerrainDef>	
+	<TerrainDef ParentName="NormalBase">
+		<DefName>ZEN_GravelNormalSlate</DefName>
+		<label>unraked slate gravel</label>
+		<color>(70,70,70)</color>
+		<CostList>
+			<BlocksSlate>4</BlocksSlate>
+		</CostList>
+	</TerrainDef>	
+	<TerrainDef ParentName="NormalBase">
+		<DefName>ZEN_GravelNormalMarble</DefName>
+		<label>unraked marble gravel</label>
+		<color>(132,135,132)</color>
+		<CostList>
+			<BlocksMarble>4</BlocksMarble>
+		</CostList>
+	</TerrainDef>	
+	<TerrainDef ParentName="NormalBase">
+		<DefName>ZEN_GravelNormalJade</DefName>
+		<label>unraked jade gravel</label>
+		<color>(85,118,69)</color>
+		<statBases>
+			<Beauty>4</Beauty>
+		</statBases>
+		<CostList>
+			<Jade>4</Jade>
+		</CostList>
+	</TerrainDef>	
+
+</TerrainDefs>
