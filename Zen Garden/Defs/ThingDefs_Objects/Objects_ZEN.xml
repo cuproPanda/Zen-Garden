@@ -96,7 +96,7 @@
 		<label>scenic bench</label>
 		<description>A simple bench for colonists to observe the surrounding beauty.</description>
 		<graphicData>
-			<texPath>Cupro/Object/ScenicBench</texPath>
+			<texPath>Cupro/Object/ScenicBench/ScenicBench</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<shadowData>
 				<volume>(0.3, 0.6, 0.3)</volume>
@@ -113,6 +113,7 @@
 			</damageData>
 		</graphicData>
 		<altitudeLayer>Building</altitudeLayer>
+		<designationCategory>Joy</designationCategory>
 		<statBases>
 			<MaxHitPoints>75</MaxHitPoints>
 			<WorkToBuild>750</WorkToBuild>
@@ -137,18 +138,25 @@
 
 	<ThingDef ParentName="BuildingBase">
 		<defName>ZEN_FlowerArch</defName>
+		<thingClass>ZenGarden.Building_FlowerArch</thingClass>
 		<label>flower arch</label>
-		<Description>A decorative arch for passing through. Also goes well with a marriage spot.</Description>
+		<Description>A decorative arch for passing through. Also goes well with a marriage spot. Vines grow when the temperature permits, and they bloom in the spring and summer.</Description>
 		<graphicData>
-			<texPath>Cupro/Object/FlowerArch</texPath>
+			<texPath>Cupro/Object/FlowerArch/FlowerArch_Plain</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(2,2)</drawSize>
 		</graphicData>
+		<uiIconPath>Cupro/Object/FlowerArch/FlowerArch_MenuIcon</uiIconPath>
+		<drawerType>MapMeshOnly</drawerType>
 		<altitudeLayer>Building</altitudeLayer>
 		<rotatable>false</rotatable>
 		<statBases>
 			<WorkToBuild>200</WorkToBuild>
 		</statBases>
+		<costList>
+			<Steel>15</Steel>
+		</costList>
+		<constructEffect>ConstructMetal</constructEffect>
 		<useHitPoints>False</useHitPoints>
 		<Size>(2,1)</Size>
 		<DesignationCategory>Misc</DesignationCategory>

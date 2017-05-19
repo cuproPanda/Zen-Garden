@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+	<ThoughtDef>
+		<defName>ZEN_EnjoyedBeautifulScenery</defName>
+		<durationDays>0.5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>enjoyed beautiful scenery</label>
+				<description>I had a moment to sit and relax while enjoying beautiful scenery.</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li> 
+		</stages>
+	</ThoughtDef>
+	
+	<ThoughtDef>
+		<defName>ZEN_EnjoyedScenery</defName>
+		<durationDays>0.5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>enjoyed scenery</label>
+				<description>I had a moment to sit and relax while enjoying the scenery.</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li> 
+		</stages>
+	</ThoughtDef>
+	
+	<ThoughtDef>
+		<defName>ZEN_DidNotEnjoyScenery</defName>
+		<durationDays>0.5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>didn't enjoy scenery</label>
+				<description>I had a moment to sit and relax, but the scenery just reminded me how ugly this place is.</description>
+				<baseMoodEffect>0</baseMoodEffect>
+			</li> 
+		</stages>
+	</ThoughtDef>
+
+</Defs>

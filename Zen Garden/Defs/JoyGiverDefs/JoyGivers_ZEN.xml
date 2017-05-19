@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<JoyGiverDef>
+		<defName>ZEN_Joy_SitAtScenicBench</defName>
+		<giverClass>ZenGarden.JoyGiver_SitAtScenicBench</giverClass>
+		<baseChance>1</baseChance>
+		<jobDef>ZEN_SitAtScenicBench</jobDef>
+		<joyKind>Meditative</joyKind>
+		<requiredCapacities>
+			<li>Sight</li>
+		</requiredCapacities>
+	</JoyGiverDef>
+
+</Defs>
