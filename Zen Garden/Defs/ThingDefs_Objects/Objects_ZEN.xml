@@ -26,8 +26,7 @@
 		</tradeTags>
 	</ThingDef>
 
-
-	<ThingDef Name="zenBase" ParentName="BuildingBase" Abstract="True">
+	<ThingDef Name="ZenBase" ParentName="BuildingBase" Abstract="True">
 		<graphicData>
 			<shaderType>CutoutComplex</shaderType>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -86,15 +85,15 @@
 	</ThingDef>
 
 
+	<!--==================== Base Inheritors ====================-->
 
-
-
+	<!--=============== Misc. Objects ===============-->
 
 
 	<ThingDef ParentName="FurnitureBase">
 		<defName>ZEN_ScenicBench</defName>
 		<label>scenic bench</label>
-		<description>A simple bench for colonists to observe the surrounding beauty.</description>
+		<description>A simple bench for colonists to sit at to observe the surrounding beauty.</description>
 		<graphicData>
 			<texPath>Cupro/Object/ScenicBench/ScenicBench</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -167,59 +166,7 @@
 		</building>
 	</ThingDef>
 
-
-
-	<ThingDef ParentName="zenBase">
-		<defName>ZEN_BorderPath</defName>
-		<label>border path</label>
-		<description>A nice border for a walkway, path, or rock garden.</description>
-		<graphicData>
-			<texPath>Cupro/Object/Linked/BorderPath</texPath>
-			<linkType>Basic</linkType>
-			<linkFlags>
-				<li>Custom4</li>
-			</linkFlags>
-		</graphicData>
-		<blueprintGraphicData>
-			<texPath>Cupro/Object/Linked/BorderPathBlueprint</texPath>
-		</blueprintGraphicData>
-		<uiIconPath>Cupro/Object/Linked/BorderPathIcon</uiIconPath>
-		<statBases>
-			<WorkToBuild>180</WorkToBuild>
-		</statBases>
-		<placingDraggableDimensions>1</placingDraggableDimensions>
-		<stuffCategories>
-			<li>Stony</li>
-		</stuffCategories>
-		<costStuffCount>8</costStuffCount>
-	</ThingDef>
-
-	<ThingDef ParentName="zenBase">
-		<defName>ZEN_BorderPond</defName>
-		<label>border pond</label>
-		<description>A border path filled with a small amount of water. Very relaxing.</description>
-		<graphicData>
-			<texPath>Cupro/Object/Linked/BorderPond</texPath>
-			<linkType>Basic</linkType>
-			<linkFlags>
-				<li>Custom5</li>
-			</linkFlags>
-		</graphicData>
-		<blueprintGraphicData>
-			<texPath>Cupro/Object/Linked/BorderPathBlueprint</texPath>
-		</blueprintGraphicData>
-		<uiIconPath>Cupro/Object/Linked/BorderPondIcon</uiIconPath>
-		<statBases>
-			<WorkToBuild>180</WorkToBuild>
-		</statBases>
-		<placingDraggableDimensions>1</placingDraggableDimensions>
-		<stuffCategories>
-			<li>Stony</li>
-		</stuffCategories>
-		<costStuffCount>8</costStuffCount>
-	</ThingDef>
-
-	<ThingDef ParentName="zenBase">
+	<ThingDef ParentName="ZenBase">
 		<defName>ZEN_Hedge</defName>
 		<label>hedge</label>
 		<description>An artificial shrubbery with festive flowers. Does not block paths.</description>
@@ -251,7 +198,7 @@
 		</costList>
 	</ThingDef>
 
-	<ThingDef ParentName="zenBase">
+	<ThingDef ParentName="ZenBase">
 		<defName>ZEN_StackedRocks</defName>
 		<label>stacked rocks</label>
 		<description>Rocks that are stacked on top of each other. Conveys a sense of balance.</description>
@@ -272,42 +219,7 @@
 		<costStuffCount>20</costStuffCount>
 	</ThingDef>
 
-	<ThingDef ParentName="RakedBase">
-		<defName>ZEN_GravelCurve</defName>
-		<label>curved gravel</label>
-		<description>Gravel flooring that has been raked in a curve.</description>
-		<graphicData>
-			<texPath>Cupro/Object/GravelCurve</texPath>
-		</graphicData>
-		<uiIconPath>Cupro/Object/GravelCurve_MenuIcon</uiIconPath>
-		<rotatable>true</rotatable>
-	</ThingDef>
-
-	<ThingDef ParentName="RakedBase">
-		<defName>ZEN_GravelHoriz</defName>
-		<label>horizontal gravel</label>
-		<description>Gravel flooring that has been raked in a horizontal pattern.</description>
-		<graphicData>
-			<texPath>Cupro/Object/GravelHoriz</texPath>
-		</graphicData>
-		<uiIconPath>Cupro/Object/GravelHoriz_MenuIcon</uiIconPath>
-		<placingDraggableDimensions>1</placingDraggableDimensions>
-	</ThingDef>
-
-	<ThingDef ParentName="RakedBase">
-		<defName>ZEN_GravelVert</defName>
-		<label>vertical gravel</label>
-		<description>Gravel flooring that has been raked in a vertical pattern.</description>
-		<graphicData>
-			<texPath>Cupro/Object/GravelVert</texPath>
-		</graphicData>
-		<uiIconPath>Cupro/Object/GravelVert_MenuIcon</uiIconPath>
-		<placingDraggableDimensions>1</placingDraggableDimensions>
-	</ThingDef>
-
-
-
-	<ThingDef ParentName="zenBase">
+	<ThingDef ParentName="ZenBase">
 		<defName>ZEN_bpPillar</defName>
 		<label>border path pillar</label>
 		<description>An ornate pillar with an over-sized cap. Can be used to support roofs.</description>
@@ -337,6 +249,95 @@
 	</ThingDef>
 
 
+	<!--=============== Border Paths ===============-->
+
+
+	<ThingDef ParentName="ZenBase">
+		<defName>ZEN_BorderPath</defName>
+		<label>border path</label>
+		<description>A nice border for a walkway, path, or rock garden.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Linked/BorderPath</texPath>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Custom4</li>
+			</linkFlags>
+		</graphicData>
+		<blueprintGraphicData>
+			<texPath>Cupro/Object/Linked/BorderPathBlueprint</texPath>
+		</blueprintGraphicData>
+		<uiIconPath>Cupro/Object/Linked/BorderPathIcon</uiIconPath>
+		<statBases>
+			<WorkToBuild>180</WorkToBuild>
+		</statBases>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>8</costStuffCount>
+	</ThingDef>
+
+	<ThingDef ParentName="ZenBase">
+		<defName>ZEN_BorderPond</defName>
+		<label>border pond</label>
+		<description>A border path filled with a small amount of water. Very relaxing.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Linked/BorderPond</texPath>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Custom5</li>
+			</linkFlags>
+		</graphicData>
+		<blueprintGraphicData>
+			<texPath>Cupro/Object/Linked/BorderPathBlueprint</texPath>
+		</blueprintGraphicData>
+		<uiIconPath>Cupro/Object/Linked/BorderPondIcon</uiIconPath>
+		<statBases>
+			<WorkToBuild>180</WorkToBuild>
+		</statBases>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>8</costStuffCount>
+	</ThingDef>
+
+
+	<!--=============== Raked Gravel ===============-->
+
+
+	<ThingDef ParentName="RakedBase">
+		<defName>ZEN_GravelCurve</defName>
+		<label>curved gravel</label>
+		<description>Designate a colonist to rake the below gravel into a curved pattern.</description>
+		<graphicData>
+			<texPath>Cupro/Object/GravelCurve</texPath>
+		</graphicData>
+		<uiIconPath>Cupro/Object/GravelCurve_MenuIcon</uiIconPath>
+		<rotatable>true</rotatable>
+	</ThingDef>
+
+	<ThingDef ParentName="RakedBase">
+		<defName>ZEN_GravelHoriz</defName>
+		<label>horizontal gravel</label>
+		<description>Designate a colonist to rake the below gravel into a horizontal pattern.</description>
+		<graphicData>
+			<texPath>Cupro/Object/GravelHoriz</texPath>
+		</graphicData>
+		<uiIconPath>Cupro/Object/GravelHoriz_MenuIcon</uiIconPath>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+	</ThingDef>
+
+	<ThingDef ParentName="RakedBase">
+		<defName>ZEN_GravelVert</defName>
+		<label>vertical gravel</label>
+		<description>Designate a colonist to rake the below gravel into a vertical pattern.</description>
+		<graphicData>
+			<texPath>Cupro/Object/GravelVert</texPath>
+		</graphicData>
+		<uiIconPath>Cupro/Object/GravelVert_MenuIcon</uiIconPath>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+	</ThingDef>
 
 </ThingDefs>
 

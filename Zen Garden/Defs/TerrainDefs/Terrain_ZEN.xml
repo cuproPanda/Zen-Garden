@@ -8,16 +8,11 @@
 		</affordances>
 		<layerable>true</layerable>
 		<designationCategory>ZEN_Decoration</designationCategory>
-		<RenderPrecedence>150</RenderPrecedence>
-		<EdgeType>Hard</EdgeType>
-		<PathCost>15</PathCost>
+		<EdgeType>FadeRough</EdgeType>
 		<acceptFilth>false</acceptFilth>
 		<avoidWander>true</avoidWander>
 		<takeFootprints>false</takeFootprints>
 		<holdSnow>true</holdSnow>
-		<statBases>
-			<WorkToBuild>150</WorkToBuild>
-		</statBases>
 		<!-- The stone is broken into gravel, so it shouldn't yield usable blocks -->
 		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
 		<Fertility>0</Fertility>
@@ -28,16 +23,16 @@
 	<!--========== Low-Level Bases ==========-->
 
 	<TerrainDef Name="RoughBase" ParentName="GravelFloorBase" Abstract="True">
-		<description>Rough gravel flooring made for paths.</description>
+		<description>Rough gravel flooring made for paths. The gravel is too large to be raked.</description>
 		<texturePath>Cupro/Terrain/GravelRough</texturePath>
+		<uiIconPath>Cupro/Terrain/GravelRough_MenuIcon</uiIconPath>
 		<statBases>
-			<Beauty>1</Beauty>
 			<Cleanliness>-1</Cleanliness>
+			<WorkToBuild>150</WorkToBuild>
 		</statBases>
-		<EdgeType>FadeRough</EdgeType>
 		<avoidWander>false</avoidWander>
 		<RenderPrecedence>221</RenderPrecedence>
-		<PathCost>2</PathCost>
+		<PathCost>1</PathCost>
 		<ScatterType>Rocky</ScatterType>
 		<tags>
 			<li>Road</li>
@@ -45,12 +40,15 @@
 	</TerrainDef>	
 
 	<TerrainDef Name="NormalBase" ParentName="GravelFloorBase" Abstract="True">
-		<description>Gravel flooring that can be raked into various patterns.</description>
+		<description>Gravel flooring made from small polished stones. Can be raked into various patterns. Slower to build, but is beautiful to look at.</description>
 		<texturePath>Cupro/Terrain/GravelNorm</texturePath>
+		<uiIconPath>Cupro/Terrain/GravelNorm_MenuIcon</uiIconPath>
 		<statBases>
 			<Beauty>2</Beauty>
+			<WorkToBuild>350</WorkToBuild>
 		</statBases>
 		<RenderPrecedence>222</RenderPrecedence>
+		<PathCost>2</PathCost>
 		<tags>
 			<!-- This tag is used to allow the PlaceWorker to distinguish it without 
 			needing to check multiple defs every time raked gravel is placed -->
@@ -65,7 +63,7 @@
 		<label>rough sandstone gravel</label>
 		<color>(126,104,94)</color>
 		<CostList>
-			<BlocksSandstone>4</BlocksSandstone>
+			<BlocksSandstone>2</BlocksSandstone>
 		</CostList>
 	</TerrainDef>	
 	<TerrainDef ParentName="RoughBase">
@@ -73,7 +71,7 @@
 		<label>rough granite gravel</label>
 		<color>(105,95,97)</color>
 		<CostList>
-			<BlocksGranite>4</BlocksGranite>
+			<BlocksGranite>2</BlocksGranite>
 		</CostList>
 	</TerrainDef>	
 	<TerrainDef ParentName="RoughBase">
@@ -81,7 +79,7 @@
 		<label>rough limestone gravel</label>
 		<color>(158,153,135)</color>
 		<CostList>
-			<BlocksLimestone>4</BlocksLimestone>
+			<BlocksLimestone>2</BlocksLimestone>
 		</CostList>
 	</TerrainDef>	
 	<TerrainDef ParentName="RoughBase">
@@ -89,7 +87,7 @@
 		<label>rough slate gravel</label>
 		<color>(70,70,70)</color>
 		<CostList>
-			<BlocksSlate>4</BlocksSlate>
+			<BlocksSlate>2</BlocksSlate>
 		</CostList>
 	</TerrainDef>	
 	<TerrainDef ParentName="RoughBase">
@@ -97,7 +95,7 @@
 		<label>rough marble gravel</label>
 		<color>(132,135,132)</color>
 		<CostList>
-			<BlocksMarble>4</BlocksMarble>
+			<BlocksMarble>2</BlocksMarble>
 		</CostList>
 	</TerrainDef>	
 
