@@ -20,12 +20,16 @@
 			<leaflessGraphicPath>Cupro/Object/Plant/CherryTree_Leafless</leaflessGraphicPath>
 			<harvestWork>1000</harvestWork>
 			<harvestYield>35</harvestYield>
-			<wildCommonalityMaxFraction>0.15</wildCommonalityMaxFraction>
+			<wildCommonalityMaxFraction>0.001</wildCommonalityMaxFraction>
+			<wildClusterSizeRange>
+				<min>3</min>
+				<max>8</max>
+			</wildClusterSizeRange>
 			<wildBiomes>
-				<TropicalRainforest>0.02</TropicalRainforest>
-				<TemperateForest>0.06</TemperateForest>
-				<AridShrubland>0.02</AridShrubland>
-				<BorealForest>0.03</BorealForest>
+				<TropicalRainforest>0.003</TropicalRainforest>
+				<TemperateForest>0.01</TemperateForest>
+				<AridShrubland>0.003</AridShrubland>
+				<BorealForest>0.005</BorealForest>
 			</wildBiomes>
 		</plant>
 	</ThingDef>
