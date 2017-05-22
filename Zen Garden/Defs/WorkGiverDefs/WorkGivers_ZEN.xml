@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WorkGivers>
+
+	<WorkGiverDef>
+		<defName>ZEN_WorkGiver_GrowerHarvestSecondary</defName>
+		<label>harvest secondary resources from plants</label>
+		<giverClass>ZenGarden.WorkGiver_GrowerHarvestSecondary</giverClass>
+		<workType>Growing</workType>
+		<priorityInType>90</priorityInType>
+		<verb>harvest</verb>
+		<gerund>harvesting</gerund>
+		<scanThings>true</scanThings>
+		<scanCells>false</scanCells>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+</WorkGivers>

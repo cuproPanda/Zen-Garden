@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- Big thanks to Zhentar for their guide! https://gist.github.com/Zhentar/4a1b71cea45b9337f70b30a21d868782 -->
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<Operations>
+			<li Class="PatchOperationTest">
+				<xpath>//DesignationCategoryDef[defName="Orders"]/specialDesignatorClasses/ExpandedPower.Designator_PlantsHarvestSecondary</xpath>
+				<success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>//DesignationCategoryDef[defName="Orders"]/specialDesignatorClasses</xpath>
+				<value>
+					<li>ZenGarden.Designator_PlantsHarvestSecondary</li>
+				</value>
+				<order>Append</order>
+			</li>
+		</Operations>
+	</Operation>
+
+</Patch>

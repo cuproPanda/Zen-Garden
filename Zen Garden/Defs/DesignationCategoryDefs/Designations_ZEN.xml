@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DesignationDefs>
+
+	<DesignationDef>
+		<defName>ZEN_Designator_PlantsHarvestSecondary</defName>
+		<texturePath>Cupro/UI/Designations/HarvestSecondary</texturePath>
+		<targetType>Thing</targetType>
+	</DesignationDef>
+
+</DesignationDefs>
