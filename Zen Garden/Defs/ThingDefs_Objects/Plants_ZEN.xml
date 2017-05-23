@@ -19,7 +19,7 @@
 			<growDays>20</growDays>
 			<leaflessGraphicPath>Cupro/Object/Plant/CherryTree_Leafless</leaflessGraphicPath>
 			<harvestWork>1000</harvestWork>
-			<harvestThing>ZEN_CherryWood</harvestThing>
+			<harvestedThingDef>ZEN_CherryWood</harvestedThingDef>
 			<harvestYield>35</harvestYield>
 			<wildCommonalityMaxFraction>0.001</wildCommonalityMaxFraction>
 			<wildClusterSizeRange>
