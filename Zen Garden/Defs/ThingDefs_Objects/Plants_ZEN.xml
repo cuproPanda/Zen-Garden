@@ -7,7 +7,7 @@
 		<defName>ZEN_PlantTreeCherry</defName>
 		<thingClass>RimWorld.PlantWithSecondary</thingClass>
 		<label>cherry tree</label>
-		<description>A vibrant and colorful tree often grown for decoration. Produces cherries in the summer.</description>
+		<description>A vibrant and colorful tree often grown for decoration. Produces cherries in the summer. Can also be chopped down for cherrywood.</description>
 		<graphicData>
 			<texPath>Cupro/Object/Plant/CherryTree_Normal</texPath>
 			<graphicClass>Graphic_Random</graphicClass>
@@ -19,6 +19,7 @@
 			<growDays>20</growDays>
 			<leaflessGraphicPath>Cupro/Object/Plant/CherryTree_Leafless</leaflessGraphicPath>
 			<harvestWork>1000</harvestWork>
+			<harvestThing>ZEN_CherryWood</harvestThing>
 			<harvestYield>35</harvestYield>
 			<wildCommonalityMaxFraction>0.001</wildCommonalityMaxFraction>
 			<wildClusterSizeRange>
