@@ -75,13 +75,22 @@ namespace ZenGarden {
       float beauty = 0f;
       int cells = 0;
       BeautyUtility.FillBeautyRelevantCells(root, map);
-      for (int i = 0; i < BeautyUtility.beautyRelevantCells.Count; i++) {
+      List<IntVec3> beautyCells = BeautyUtility.beautyRelevantCells;
+      for (int i = 0; i < beautyCells.Count; i++) {
         // Get the beauty for this cell
-        beauty += BeautyUtility.CellBeauty(BeautyUtility.beautyRelevantCells[i], map, tempCountedThings);
+        beauty += BeautyUtility.CellBeauty(beautyCells[i], map, tempCountedThings);
         // Add +1 beauty for any plant that doesn't already have beauty
-        Plant plant = BeautyUtility.beautyRelevantCells[i].GetPlant(Map);
+        Plant plant = beautyCells[i].GetPlant(Map);
         if (plant != null && plant.GetStatValue(StatDefOf.Beauty) <= 0) {
           beauty += 1f;
+        }
+        // Add +1 beauty for any water cells
+        if (beautyCells[i].GetTerrain(map).tags.Contains("Water")) {
+          beauty += 1f;
+        }
+        // Add +2 beauty for moving water (rivers)
+        if (beautyCells[i].GetTerrain(map).tags.Contains("River")) {
+          beauty += 2f;
         }
         cells++;
       }
