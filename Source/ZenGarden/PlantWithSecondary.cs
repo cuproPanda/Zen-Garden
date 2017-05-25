@@ -32,6 +32,16 @@ namespace RimWorld {
       }
     }
 
+    private float Sec_GrowthPerTick {
+      get {
+        if (LifeStage != PlantLifeStage.Growing || Resting) {
+          return 0f;
+        }
+        float num = 1f / (60000f * secondaryDef.growDays);
+        return num * GrowthRate;
+      }
+    }
+
     // This is harvestable when the secondary thing is fully grown and the parent plant is sufficiently grown
     // This is useful for times when the secondary thing grows much quicker than the parent plant
     // This also checks if there are limited growth seasons and limits harvesting to those seasons
@@ -91,6 +101,20 @@ namespace RimWorld {
     }
 
 
+    public override string LabelMouseover {
+      get {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.Append(base.LabelMouseover);
+        stringBuilder.Append(" - " + thingLabel + " (" + "PercentGrowth".Translate(new object[]
+        {
+            Sec_GrowthPercentString
+        }));
+        stringBuilder.Append(")");
+        return stringBuilder.ToString().TrimEndNewlines();
+      }
+    }
+
+
     public override void SpawnSetup(Map map, bool respawningAfterLoad) {
       base.SpawnSetup(map, respawningAfterLoad);
 
@@ -131,7 +155,7 @@ namespace RimWorld {
       if (GrowsThisSeason) {
         if (GenPlant.GrowthSeasonNow(Position, Map)) {
           if (HasEnoughLightToGrow) {
-            sec_GrowthInt += (GrowthPerTick * 2000f) * AdjustedGrowth;
+            sec_GrowthInt += (Sec_GrowthPerTick * 2000f) * AdjustedGrowth;
             Mathf.Clamp01(sec_GrowthInt);
           }
         } 

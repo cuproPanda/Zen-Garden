@@ -40,7 +40,7 @@ namespace ZenGarden {
       yield return Toils_Goto.GotoThing(PlantInd, PathEndMode.ClosestTouch);
 
       // Add delay for collecting resource from plant, if it is ready
-      yield return Toils_General.Wait(Duration).FailOnDestroyedNullOrForbidden(PlantInd).WithProgressBarToilDelay(PlantInd);
+      yield return Toils_General.Wait(Duration).FailOnDestroyedNullOrForbidden(PlantInd).WithProgressBarToilDelay(PlantInd).PlaySustainerOrSound(SoundDef.Named("Harvest_Standard"));
 
       // Collect resource
       Toil collect = new Toil();
@@ -73,6 +73,7 @@ namespace ZenGarden {
         }
       };
       collect.defaultCompleteMode = ToilCompleteMode.Instant;
+      collect.PlaySoundAtEnd(SoundDef.Named("Harvest_Standard_Finish"));
       yield return collect;
 
       // Reserve the resource

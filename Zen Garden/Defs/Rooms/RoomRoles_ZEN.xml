@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RoomRoleDefs>
+  
+  <RoomRoleDef>
+    <defName>ZEN_ZenGarden</defName>
+    <label>zen garden</label>
+    <workerClass>ZenGarden.RoomRoleWorker_ZenGarden</workerClass>
+    <relatedStats>
+      <li>Beauty</li>
+      <li>Space</li>
+    </relatedStats>
+  </RoomRoleDef>
+
+</RoomRoleDefs>

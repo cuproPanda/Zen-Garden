@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<RoadDef Name="GravelPathBase" Abstract="True">
+	<RoadDef Name="ZEN_GravelPathBase" Abstract="True">
 		<priority>2</priority>
 		<movementCostMultiplier>0.5</movementCostMultiplier>
 		<tilesPerSegment>15</tilesPerSegment>
@@ -21,7 +21,7 @@
 		<worldTransitionGroup>Dirt</worldTransitionGroup>
 	</RoadDef>
 
-	<RoadDef ParentName="GravelPathBase">
+	<RoadDef ParentName="ZEN_GravelPathBase">
 		<defName>ZEN_GravelPathSandstone</defName>
 		<label>sandstone gravel path</label>
 		<roadGenSteps>
@@ -38,7 +38,7 @@
 		</roadGenSteps>
 	</RoadDef>
 	
-	<RoadDef ParentName="GravelPathBase">
+	<RoadDef ParentName="ZEN_GravelPathBase">
 		<defName>ZEN_GravelPathGranite</defName>
 		<label>granite gravel path</label>
 		<roadGenSteps>
@@ -55,7 +55,7 @@
 		</roadGenSteps>
 	</RoadDef>
 	
-	<RoadDef ParentName="GravelPathBase">
+	<RoadDef ParentName="ZEN_GravelPathBase">
 		<defName>ZEN_GravelPathLimestone</defName>
 		<label>limestone gravel path</label>
 		<roadGenSteps>
@@ -72,7 +72,7 @@
 		</roadGenSteps>
 	</RoadDef>
 	
-	<RoadDef ParentName="GravelPathBase">
+	<RoadDef ParentName="ZEN_GravelPathBase">
 		<defName>ZEN_GravelPathSlate</defName>
 		<label>slate gravel path</label>
 		<roadGenSteps>
@@ -89,7 +89,7 @@
 		</roadGenSteps>
 	</RoadDef>
 	
-	<RoadDef ParentName="GravelPathBase">
+	<RoadDef ParentName="ZEN_GravelPathBase">
 		<defName>ZEN_GravelPathMarble</defName>
 		<label>marble gravel path</label>
 		<roadGenSteps>
