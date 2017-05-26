@@ -34,7 +34,7 @@ namespace RimWorld {
 
     private float Sec_GrowthPerTick {
       get {
-        if (LifeStage != PlantLifeStage.Growing || Resting) {
+        if (LifeStage == PlantLifeStage.Sowing || Resting || Sec_HarvestableNow) {
           return 0f;
         }
         float num = 1f / (60000f * secondaryDef.growDays);
@@ -155,8 +155,7 @@ namespace RimWorld {
       if (GrowsThisSeason) {
         if (GenPlant.GrowthSeasonNow(Position, Map)) {
           if (HasEnoughLightToGrow) {
-            sec_GrowthInt += (Sec_GrowthPerTick * 2000f) * AdjustedGrowth;
-            Mathf.Clamp01(sec_GrowthInt);
+            sec_GrowthInt = Mathf.Clamp01(sec_GrowthInt + ((Sec_GrowthPerTick * 2000f) * AdjustedGrowth));
           }
         } 
       }
