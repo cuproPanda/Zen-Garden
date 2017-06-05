@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<Operations>
+			<li Class="PatchOperationAdd">
+				<xpath>//DesignationCategoryDef[defName="Orders"]/specialDesignatorClasses</xpath>
+				<value>
+					<li>ZenGarden.Designator_PlantsHarvestSecondary</li>
+				</value>
+				<order>Append</order>
+			</li>
+		</Operations>
+	</Operation>
+
+</Patch>
