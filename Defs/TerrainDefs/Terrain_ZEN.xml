@@ -44,7 +44,6 @@
 		<texturePath>Cupro/Terrain/GravelNorm</texturePath>
 		<uiIconPath>Cupro/Terrain/GravelNorm_MenuIcon</uiIconPath>
 		<statBases>
-			<Beauty>2</Beauty>
 			<WorkToBuild>350</WorkToBuild>
 		</statBases>
 		<RenderPrecedence>222</RenderPrecedence>
