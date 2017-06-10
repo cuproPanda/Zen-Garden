@@ -52,6 +52,7 @@
     <Compile Include="Designator_PlantsHarvestSecondary.cs" />
     <Compile Include="AI\JobDriver_SitAtScenicBench.cs" />
     <Compile Include="AI\JoyGiver_SitAtScenicBench.cs" />
+    <Compile Include="PatchOperationModDependent.cs" />
     <Compile Include="PlaceWorker_OnRakeableGravel.cs" />
     <Compile Include="PlantWithSecondary.cs" />
     <Compile Include="PlantWithSecondaryDef.cs" />
