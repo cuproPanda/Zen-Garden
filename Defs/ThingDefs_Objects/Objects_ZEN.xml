@@ -199,6 +199,37 @@
 	</ThingDef>
 
 	<ThingDef ParentName="ZenBase">
+		<defName>ZEN_Fence</defName>
+		<label>half wall</label>
+		<description>A small wall to line paths. Able to be climbed over.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Linked/Fence</texPath>
+			<shadowData>
+				<volume>(1, 0.5, 1)</volume>
+			</shadowData>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>MapEdge</li>
+			</linkFlags>
+		</graphicData>
+		<pathCost>40</pathCost>
+		<fillPercent>0.65</fillPercent>
+		<altitudeLayer>Building</altitudeLayer>
+		<uiIconPath>Cupro/Object/Linked/FenceIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<WorkToBuild>200</WorkToBuild>
+			<Beauty>3</Beauty>
+			<Flammability>0</Flammability>
+		</statBases>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>3</costStuffCount>
+	</ThingDef>
+
+	<ThingDef ParentName="ZenBase">
 		<defName>ZEN_StackedRocks</defName>
 		<label>stacked rocks</label>
 		<description>Rocks that are stacked on top of each other. Conveys a sense of balance.</description>
@@ -228,6 +259,9 @@
 			<shadowData>
 				<volume>(0.5, 1, 0.5)</volume>
 			</shadowData>
+			<linkFlags>
+				<li>MapEdge</li>
+			</linkFlags>
 		</graphicData>
 		<altitudeLayer>Building</altitudeLayer>
 		<passability>Impassable</passability>

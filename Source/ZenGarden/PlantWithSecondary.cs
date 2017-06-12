@@ -58,7 +58,10 @@ namespace RimWorld {
     // If the growth is limited to specific seasons, return whether the current season is acceptable
     public bool GrowsThisSeason {
       get {
-        if (secondaryDef.limitedGrowSeasons == null) {
+        if (!Spawned || secondaryDef == null) {
+          return false;
+        }
+        if (secondaryDef.limitedGrowSeasons == null || secondaryDef.limitedGrowSeasons.Count < 1) {
           return true;
         }
         if (secondaryDef.limitedGrowSeasons.Contains(GenLocalDate.Season(Map))) {
