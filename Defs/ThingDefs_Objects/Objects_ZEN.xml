@@ -37,7 +37,6 @@
 		<pathCost>25</pathCost>
 		<castEdgeShadows>false</castEdgeShadows>
 		<fillPercent>0</fillPercent>
-		<useHitPoints>false</useHitPoints>
 		<coversFloor>true</coversFloor>
 		<statBases>
 			<Beauty>5</Beauty>
@@ -150,6 +149,7 @@
 		<altitudeLayer>Building</altitudeLayer>
 		<rotatable>false</rotatable>
 		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
 			<WorkToBuild>200</WorkToBuild>
 		</statBases>
 		<costList>
@@ -168,28 +168,26 @@
 
 	<ThingDef ParentName="ZenBase">
 		<defName>ZEN_Hedge</defName>
-		<label>hedge</label>
-		<description>An artificial shrubbery with festive flowers. Does not block paths.</description>
+		<label>artificial hedge</label>
+		<description>An artificial shrubbery for lining paths or walkways. Does not prevent movement.</description>
 		<graphicData>
 			<texPath>Cupro/Object/Linked/Hedge/HedgeAtlas</texPath>
 			<shadowData>
-				<volume>(1, 0.25, 1)</volume>
+				<volume>(1, 0.5, 1)</volume>
 			</shadowData>
 			<linkType>Basic</linkType>
 			<linkFlags>
 				<li>Sandbags</li>
 			</linkFlags>
 		</graphicData>
-		<pathCost>45</pathCost>
-		<fillPercent>0.1</fillPercent>
+		<pathCost>70</pathCost>
+		<fillPercent>0.3</fillPercent>
 		<altitudeLayer>Building</altitudeLayer>
-		<blueprintGraphicData>
-			<texPath>Cupro/Object/Linked/Hedge/HedgeBlueprint</texPath>
-		</blueprintGraphicData>
 		<uiIconPath>Cupro/Object/Linked/Hedge/HedgeIcon</uiIconPath>
 		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>400</WorkToBuild>
-			<Beauty>3</Beauty>
+			<Beauty>1</Beauty>
 			<Flammability>1</Flammability>
 		</statBases>
 		<placingDraggableDimensions>1</placingDraggableDimensions>
