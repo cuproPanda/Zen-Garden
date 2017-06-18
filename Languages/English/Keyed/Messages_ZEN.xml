@@ -6,7 +6,7 @@
 
 	<!-- Plants -->
 	<ZEN_CannotGrowBadSeason>not growing (out of season).</ZEN_CannotGrowBadSeason>
-	<ZEN_DesignatorHarvestSecondary>Harvest secondary resource</ZEN_DesignatorHarvestSecondary>
+	<ZEN_DesignatorHarvestSecondary>Harvest secondary</ZEN_DesignatorHarvestSecondary>
 	<ZEN_DesignatorHarvestSecondaryDesc>Designate colonists to harvest secondary resources.</ZEN_DesignatorHarvestSecondaryDesc>
 	<ZEN_MustDesignatePlantsWithSecondary>Must designate plants with a secondary resource.</ZEN_MustDesignatePlantsWithSecondary>
 	<ZEN_MustDesignateHarvestableSecondary>Must designate plants with a harvestable secondary resource.</ZEN_MustDesignateHarvestableSecondary>

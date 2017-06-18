@@ -53,6 +53,58 @@
 		<blockLight>false</blockLight>
 	</ThingDef>
 
+	<ThingDef Name="ZenFountainBase" ParentName="ZenBase" Abstract="True">
+		<thingClass>ZenGarden.Building_Fountain</thingClass>
+		<minifiedDef>MinifiedFurniture</minifiedDef>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>true</rotatable>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<texPath>Cupro/Object/Fountain/Fountain</texPath>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(3,3)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<size>(1,1)</size>
+		<statBases>
+			<MaxHitPoints>350</MaxHitPoints>
+			<WorkToBuild>700</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+			<li Class="CompProperties_Art">
+				<nameMaker>ArtName_Sculpture</nameMaker>
+				<descriptionMaker>ArtDescription_Sculpture</descriptionMaker>
+				<canBeEnjoyedAsArt>true</canBeEnjoyedAsArt>
+				<minQualityForArtistic>Excellent</minQualityForArtistic>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>50</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+		</comps>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+		<researchPrerequisites>
+			<li>Electricity</li>
+		</researchPrerequisites>
+	</ThingDef>
+
 	<ThingDef Name="RakedBase" ParentName="BuildingBase" Abstract="True">
 		<graphicData>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -196,7 +248,7 @@
 		</costList>
 	</ThingDef>
 
-	<ThingDef ParentName="ZenBase">
+	<ThingDef Name="Zen_HalfWallParent" ParentName="ZenBase">
 		<defName>ZEN_Fence</defName>
 		<label>half wall</label>
 		<description>A small wall to line paths. Able to be climbed over.</description>
@@ -210,7 +262,7 @@
 				<li>MapEdge</li>
 			</linkFlags>
 		</graphicData>
-		<pathCost>40</pathCost>
+		<pathCost>90</pathCost>
 		<fillPercent>0.65</fillPercent>
 		<altitudeLayer>Building</altitudeLayer>
 		<uiIconPath>Cupro/Object/Linked/FenceIcon</uiIconPath>
@@ -227,13 +279,177 @@
 		<costStuffCount>3</costStuffCount>
 	</ThingDef>
 
+	<ThingDef ParentName="Zen_HalfWallParent">
+		<defName>ZEN_BonboriFence</defName>
+		<label>half wall (lantern)</label>
+		<description>A small wall with a powered lantern to line and light paths. Able to be climbed over.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Linked/BonboriFence</texPath>
+			<shadowData>
+				<volume>(1, 0.6, 1)</volume>
+			</shadowData>
+		</graphicData>
+		<uiIconPath>Cupro/Object/Linked/BonboriFenceIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>425</MaxHitPoints>
+			<WorkToBuild>250</WorkToBuild>
+			<Beauty>5</Beauty>
+		</statBases>
+		<costList>
+			<Steel>3</Steel>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>35</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>Electricity</li>
+		</researchPrerequisites>
+	</ThingDef>
+
 	<ThingDef ParentName="ZenBase">
+		<defName>ZEN_Tachidoro</defName>
+		<label>pedestal lantern</label>
+		<description>A stone pedestal lantern for lighting outside areas.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Tachidoro</texPath>
+			<shadowData>
+				<volume>(0.5, 0.75, 0.5)</volume>
+			</shadowData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>60</pathCost>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Beauty>8</Beauty>
+			<WorkToBuild>650</WorkToBuild>
+			<Mass>50</Mass>
+		</statBases>
+		<coversFloor>true</coversFloor>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>45</costStuffCount>
+		<costList>
+			<Component>1</Component>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<blockLight>true</blockLight>
+		<blockWind>true</blockWind>
+		<minifiedDef>MinifiedSculpture</minifiedDef>
+		<comps>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+			<li Class="CompProperties_Art">
+				<nameMaker>ArtName_Sculpture</nameMaker>
+				<descriptionMaker>ArtDescription_Sculpture</descriptionMaker>
+				<canBeEnjoyedAsArt>true</canBeEnjoyedAsArt>
+				<minQualityForArtistic>Excellent</minQualityForArtistic>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>60</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>12</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+			</li>
+		</comps>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+		<researchPrerequisites>
+			<li>Electricity</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<ThingDef ParentName="ZenBase">
+		<defName>ZEN_Andon</defName>
+		<label>standing lantern</label>
+		<description>A standing lantern made of cloth that has been stretched over a wooden frame. Perfect for lighting bedrooms.</description>
+		<graphicData>
+			<texPath>Cupro/Object/Andon</texPath>
+			<drawSize>(3,3)</drawSize>
+			<shadowData>
+				<volume>(0.5, 0.75, 0.5)</volume>
+			</shadowData>
+		</graphicData>
+		<size>(1,1)</size>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>60</pathCost>
+		<fillPercent>0.1</fillPercent>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Beauty>15</Beauty>
+			<WorkToBuild>350</WorkToBuild>
+			<Mass>8</Mass>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<coversFloor>true</coversFloor>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<costStuffCount>15</costStuffCount>
+		<costList>
+			<Cloth>30</Cloth>
+			<Component>1</Component>
+		</costList>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<blockLight>true</blockLight>
+		<blockWind>true</blockWind>
+		<minifiedDef>MinifiedFurniture</minifiedDef>
+		<comps>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+			<li Class="CompProperties_Art">
+				<nameMaker>ArtName_Furniture</nameMaker>
+				<descriptionMaker>ArtDescription_Furniture</descriptionMaker>
+				<canBeEnjoyedAsArt>true</canBeEnjoyedAsArt>
+				<minQualityForArtistic>Excellent</minQualityForArtistic>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>35</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(235,225,190,0)</glowColor>
+			</li>
+		</comps>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+		<researchPrerequisites>
+			<li>Electricity</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<ThingDef Name="Zen_StackedRocksParent" ParentName="ZenBase">
 		<defName>ZEN_StackedRocks</defName>
 		<label>stacked rocks</label>
 		<description>Rocks that are stacked on top of each other. Conveys a sense of balance.</description>
 		<graphicData>
 			<texPath>Cupro/Object/StackedRocks/StackedRocks</texPath>
+			<drawSize>(2,2)</drawSize>
 		</graphicData>
+		<size>(1,1)</size>
 		<altitudeLayer>Building</altitudeLayer>
 		<uiIconPath>Cupro/Object/StackedRocks/StackedRocks</uiIconPath>
 		<pathCost>70</pathCost>
@@ -246,6 +462,23 @@
 			<li>Stony</li>
 		</stuffCategories>
 		<costStuffCount>20</costStuffCount>
+	</ThingDef>
+
+	<ThingDef ParentName="Zen_StackedRocksParent">
+		<defName>ZEN_LargeStackedRocks</defName>
+		<label>large stacked rocks</label>
+		<description>Large rocks that are stacked on top of each other. Conveys a sense of balance.</description>
+		<graphicData>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+		<size>(2,2)</size>
+		<pathCost>120</pathCost>
+		<statBases>
+			<MaxHitPoints>750</MaxHitPoints>
+			<Beauty>28</Beauty>
+			<WorkToBuild>1500</WorkToBuild>
+		</statBases>
+		<costStuffCount>30</costStuffCount>
 	</ThingDef>
 
 	<ThingDef ParentName="ZenBase">
@@ -278,6 +511,24 @@
 		<holdsRoof>true</holdsRoof>
 		<blockLight>true</blockLight>
 		<blockWind>true</blockWind>
+	</ThingDef>
+
+	<ThingDef ParentName="ZenFountainBase" >
+		<defName>ZEN_SmallFountain</defName>
+		<label>small fountain</label>
+		<description>A small decorative stone fountain.</description>
+		<costStuffCount>30</costStuffCount>
+	</ThingDef>
+
+	<ThingDef ParentName="ZenFountainBase" >
+		<defName>ZEN_LargeFountain</defName>
+		<label>large fountain</label>
+		<description>A large decorative stone fountain.</description>
+		<graphicData>
+			<drawSize>(6,6)</drawSize>
+		</graphicData>
+		<costStuffCount>150</costStuffCount>
+		<size>(3,3)</size>
 	</ThingDef>
 
 
