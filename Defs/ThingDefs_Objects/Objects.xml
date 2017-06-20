@@ -56,10 +56,10 @@
 	<ThingDef Name="ZenFountainBase" ParentName="ZenBase" Abstract="True">
 		<thingClass>ZenGarden.Building_Fountain</thingClass>
 		<minifiedDef>MinifiedFurniture</minifiedDef>
-		<altitudeLayer>Building</altitudeLayer>
-		<rotatable>true</rotatable>
+		<altitudeLayer>Pawn</altitudeLayer>
+		<rotatable>false</rotatable>
 		<graphicData>
-			<graphicClass>Graphic_Multi</graphicClass>
+			<graphicClass>Graphic_Single</graphicClass>
 			<texPath>Cupro/Object/Fountain/Fountain</texPath>
 			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(3,3)</drawSize>
@@ -72,8 +72,6 @@
 		</graphicData>
 		<size>(1,1)</size>
 		<statBases>
-			<MaxHitPoints>350</MaxHitPoints>
-			<WorkToBuild>700</WorkToBuild>
 			<Flammability>0</Flammability>
 		</statBases>
 		<stuffCategories>
@@ -518,6 +516,10 @@
 		<label>small fountain</label>
 		<description>A small decorative stone fountain.</description>
 		<costStuffCount>30</costStuffCount>
+		<statBases>
+			<MaxHitPoints>350</MaxHitPoints>
+			<WorkToBuild>700</WorkToBuild>
+		</statBases>
 	</ThingDef>
 
 	<ThingDef ParentName="ZenFountainBase" >
@@ -527,8 +529,13 @@
 		<graphicData>
 			<drawSize>(6,6)</drawSize>
 		</graphicData>
-		<costStuffCount>150</costStuffCount>
+		<costStuffCount>75</costStuffCount>
 		<size>(3,3)</size>
+		<statBases>
+			<MaxHitPoints>700</MaxHitPoints>
+			<WorkToBuild>1400</WorkToBuild>
+			<Beauty>10</Beauty>
+		</statBases>
 	</ThingDef>
 
 
