@@ -110,10 +110,8 @@ namespace ZenGarden {
 				string seasons = string.Empty;
 				bool conjugate = false;
 				
-				if (seasons.NullOrEmpty() || secondaryDef.limitedGrowSeasons.Count >= 4) {
-					seasons = Static.DisplayStat_GrowsInAllSeasons;
-				}
-				else {
+				
+				if (!secondaryDef.limitedGrowSeasons.NullOrEmpty() && secondaryDef.limitedGrowSeasons.Count > 0) {
 					for (int i = 0; i < secondaryDef.limitedGrowSeasons.Count; i++) {
 						if (conjugate) {
 							seasons += ", ";
@@ -121,6 +119,9 @@ namespace ZenGarden {
 						conjugate = true;
 						seasons += secondaryDef.limitedGrowSeasons[i].LabelCap();
 					}
+				}
+				if (seasons.NullOrEmpty() || secondaryDef.limitedGrowSeasons.Count >= 4) {
+					seasons = Static.DisplayStat_GrowsInAllSeasons;
 				}
 
 				yield return new StatDrawEntry(StatCategoryDefOf.PawnMisc, thingLabel + " " + "GrowingTime".Translate().ToLower(), secondaryDef.growDays.ToString("0.##") + " " + "Days".Translate());

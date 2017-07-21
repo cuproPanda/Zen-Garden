@@ -29,7 +29,7 @@ namespace ZenGarden {
 		}
 
 
-		public Zone_Orchard(ZoneManager zoneManager) : base("ZEN_OrchardZone".Translate(), zoneManager) {
+		public Zone_Orchard(ZoneManager zoneManager) : base(Static.LabelOrchardZone, zoneManager) {
 		}
 
 

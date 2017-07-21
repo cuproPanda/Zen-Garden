@@ -8,14 +8,14 @@ namespace ZenGarden {
 
     protected override string NewZoneLabel {
       get {
-        return "OrchardZone".Translate();
+        return Static.LabelOrchardZone;
       }
     }
 
 
     public Designator_ZoneAdd_Orchard() {
       zoneTypeToPlace = typeof(Zone_Orchard);
-      defaultLabel = "ZEN_OrchardZone".Translate();
+      defaultLabel = Static.LabelOrchardZone;
       defaultDesc = "ZEN_DesignatorOrchardZoneDesc".Translate();
       icon = ContentFinder<Texture2D>.Get("Cupro/UI/Designations/ZoneCreate_Orchard", true);
     }
