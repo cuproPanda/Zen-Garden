@@ -1,19 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <WorkGivers>
-
+	
 	<WorkGiverDef>
-		<defName>ZEN_WorkGiver_GrowerHarvestSecondary</defName>
+		<defName>ZEN_GrowerHarvestSecondary</defName>
 		<label>harvest secondary resources from plants</label>
 		<giverClass>ZenGarden.WorkGiver_GrowerHarvestSecondary</giverClass>
-		<workType>Growing</workType>
-		<priorityInType>90</priorityInType>
+		<workType>PlantCutting</workType>
 		<verb>harvest</verb>
 		<gerund>harvesting</gerund>
-		<scanThings>true</scanThings>
-		<scanCells>false</scanCells>
+		<scanThings>false</scanThings>
+		<scanCells>true</scanCells>
 		<requiredCapacities>
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>ZEN_GrowerSowSecondary</defName>
+		<label>sow orchard plants</label>
+		<giverClass>ZenGarden.WorkGiver_GrowerSowSecondary</giverClass>
+		<workType>Growing</workType>
+		<verb>sow</verb>
+		<gerund>sowing</gerund>
+		<scanThings>false</scanThings>
+		<scanCells>true</scanCells>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
 
 </WorkGivers>

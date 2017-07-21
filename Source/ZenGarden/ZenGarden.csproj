@@ -31,15 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\Assemblies\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp, Version=0.17.6351.26908, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\RimWorld1557Win\RimWorld1557Win_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\RimWorld_A17\RimWorldWin_Data\Managed\UnityEngine.dll</HintPath>
@@ -49,17 +48,26 @@
     <Compile Include="AI\JobDriver_PlantsHarvestSecondary.cs" />
     <Compile Include="AI\WorkGiver_GrowerHarvestSecondary.cs" />
     <Compile Include="Buildings\Building_FlowerArch.cs" />
-    <Compile Include="Building_Fountain.cs" />
-    <Compile Include="Designator_PlantsHarvestSecondary.cs" />
+    <Compile Include="Buildings\Building_Fountain.cs" />
+    <Compile Include="Orders\Command_SetPlantWithSecondaryToGrow.cs" />
+    <Compile Include="Orders\Designator_PlantsHarvestSecondary.cs" />
     <Compile Include="AI\JobDriver_SitAtScenicBench.cs" />
     <Compile Include="AI\JoyGiver_SitAtScenicBench.cs" />
-    <Compile Include="PatchOperationModDependent.cs" />
-    <Compile Include="PlaceWorker_OnRakeableGravel.cs" />
-    <Compile Include="PlantWithSecondary.cs" />
-    <Compile Include="PlantWithSecondaryDef.cs" />
+    <Compile Include="Orders\Designator_ZoneAdd_Orchard.cs" />
+    <Compile Include="AI\JobDriver_PlantsSowSecondary.cs" />
+    <Compile Include="Utils\SecondaryPlantToGrowSettableUtility.cs" />
+    <Compile Include="Utils\PatchOperationModDependent.cs" />
+    <Compile Include="PlaceWorkers\PlaceWorker_OnRakeableGravel.cs" />
+    <Compile Include="Utils\PlantWithSecondary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoomRoleWorker_ZenGarden.cs" />
-    <Compile Include="Static.cs" />
+    <Compile Include="Utils\RoomRoleWorker_ZenGarden.cs" />
+    <Compile Include="Utils\SecondaryResource.cs" />
+    <Compile Include="Static\Static.cs" />
+    <Compile Include="AI\WorkGiver_GrowerSowSecondary.cs" />
+    <Compile Include="Static\ZenDefOf.cs" />
+    <Compile Include="Utils\WorkGiver_GrowerHarvest_HasJobOnCell.cs" />
+    <Compile Include="Utils\ZenGardenMod.cs" />
+    <Compile Include="Utils\Zone_Orchard.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

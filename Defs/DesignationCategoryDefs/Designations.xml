@@ -7,4 +7,10 @@
 		<targetType>Thing</targetType>
 	</DesignationDef>
 
+	<DesignationDef>
+		<defName>ZEN_Designator_OrchardZoneAdd</defName>
+		<texturePath>Cupro/UI/Designations/ZoneCreate_Orchard</texturePath>
+		<targetType>Cell</targetType>
+	</DesignationDef>
+
 </DesignationDefs>

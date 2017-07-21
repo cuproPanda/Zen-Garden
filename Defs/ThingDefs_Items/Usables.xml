@@ -1,40 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
 
-	<ThingDef Name="OrganicProductBase" ParentName="ResourceBase" Abstract="True">
-		<graphicData>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<socialPropernessMatters>true</socialPropernessMatters>
-		<statBases>
-			<MaxHitPoints>100</MaxHitPoints>
-			<Flammability>1.0</Flammability>
-			<DeteriorationRate>10</DeteriorationRate>
-		</statBases>
-		<tickerType>Rare</tickerType>
-	</ThingDef>
-
-	<ThingDef Abstract="True" Name="PlantFoodRawBase" ParentName="OrganicProductBase">
-		<ingestible>
-			<preferability>RawBad</preferability>
-			<tasteThought>AteRawFood</tasteThought>
-			<nutrition>0.05</nutrition>
-			<ingestEffect>EatVegetarian</ingestEffect>
-			<ingestSound>RawVegetable_Eat</ingestSound>
-		</ingestible>
-		<socialPropernessMatters>true</socialPropernessMatters>
-		<thingCategories>
-			<li>PlantFoodRaw</li>
-		</thingCategories>
-		<comps>
-			<li Class="CompProperties_FoodPoisoningChance">
-				<humanlikeOnly>true</humanlikeOnly>
-			</li>
-		</comps>
-	</ThingDef>
-
-
-
 	<ThingDef ParentName="PlantFoodRawBase">
 		<defName>ZEN_Cherries</defName>
 		<label>cherries</label>
@@ -55,6 +21,52 @@
 		<ingestible>
 			<preferability>RawTasty</preferability>
 			<tasteThought/>
+			<foodType>VegetableOrFruit</foodType>
+		</ingestible>
+	</ThingDef>
+
+	<ThingDef ParentName="PlantFoodRawBase">
+		<defName>ZEN_Persimmon</defName>
+		<label>persimmon</label>
+		<description>A soft and sweet fruit. Nice to eat, even when raw.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Usable/Persimmon</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>4</MarketValue>
+			<Mass>0.05</Mass>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>10</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+		<ingestible>
+			<preferability>RawTasty</preferability>
+			<nutrition>0.1</nutrition>
+			<tasteThought/>
+			<foodType>VegetableOrFruit</foodType>
+		</ingestible>
+	</ThingDef>
+
+	<ThingDef ParentName="PlantFoodRawBase">
+		<defName>ZEN_Crabapples</defName>
+		<label>crabapple</label>
+		<description>A tiny variety of apple. The apples are very sour unless cooked.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Usable/Crabapples</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>2</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>14</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+		<ingestible>
 			<foodType>VegetableOrFruit</foodType>
 		</ingestible>
 	</ThingDef>

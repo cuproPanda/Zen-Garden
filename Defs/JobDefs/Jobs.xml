@@ -9,11 +9,17 @@
 		<joyGainRate>0.1</joyGainRate>
 		<joyKind>Meditative</joyKind>
 	</JobDef>
-	
+
 	<JobDef>
 		<defName>ZEN_PlantsHarvestSecondary</defName>
 		<driverClass>ZenGarden.JobDriver_PlantsHarvestSecondary</driverClass>
 		<reportString>harvesting TargetA.</reportString>
+	</JobDef>
+
+	<JobDef>
+		<defName>ZEN_PlantsSowSecondary</defName>
+		<driverClass>ZenGarden.JobDriver_PlantsSowSecondary</driverClass>
+		<reportString>sowing TargetA.</reportString>
 	</JobDef>
 
 </Defs>

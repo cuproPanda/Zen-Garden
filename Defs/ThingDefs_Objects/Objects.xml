@@ -37,7 +37,6 @@
 		<pathCost>25</pathCost>
 		<castEdgeShadows>false</castEdgeShadows>
 		<fillPercent>0</fillPercent>
-		<coversFloor>true</coversFloor>
 		<statBases>
 			<Beauty>5</Beauty>
 			<Flammability>0</Flammability>
@@ -333,14 +332,10 @@
 			<WorkToBuild>650</WorkToBuild>
 			<Mass>50</Mass>
 		</statBases>
-		<coversFloor>true</coversFloor>
 		<stuffCategories>
 			<li>Stony</li>
 		</stuffCategories>
 		<costStuffCount>45</costStuffCount>
-		<costList>
-			<Component>1</Component>
-		</costList>
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<blockLight>true</blockLight>
 		<blockWind>true</blockWind>
@@ -397,14 +392,12 @@
 			<Mass>8</Mass>
 			<Flammability>1.0</Flammability>
 		</statBases>
-		<coversFloor>true</coversFloor>
 		<stuffCategories>
 			<li>Woody</li>
 		</stuffCategories>
 		<costStuffCount>15</costStuffCount>
 		<costList>
 			<Cloth>30</Cloth>
-			<Component>1</Component>
 		</costList>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<blockLight>true</blockLight>
@@ -553,6 +546,7 @@
 				<li>Custom4</li>
 			</linkFlags>
 		</graphicData>
+		<coversFloor>true</coversFloor>
 		<blueprintGraphicData>
 			<texPath>Cupro/Object/Linked/BorderPathBlueprint</texPath>
 		</blueprintGraphicData>
@@ -578,6 +572,7 @@
 				<li>Custom5</li>
 			</linkFlags>
 		</graphicData>
+		<coversFloor>true</coversFloor>
 		<blueprintGraphicData>
 			<texPath>Cupro/Object/Linked/BorderPathBlueprint</texPath>
 		</blueprintGraphicData>

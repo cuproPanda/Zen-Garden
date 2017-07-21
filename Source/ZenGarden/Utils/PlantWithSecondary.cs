@@ -1,16 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 using UnityEngine;
+using RimWorld;
 using Verse;
 
-// Moved to RimWorld namespace to allow multiple mod usage
-namespace RimWorld {
+namespace ZenGarden {
   [StaticConstructorOnStartup]
   public class PlantWithSecondary : Plant {
 
+    // If there is currently a seed for SeedsPlease, and the mod is installed, list it.
+    public ThingDef seedDef = null;
+
     // Def reference for the secondary thing
-    private PlantWithSecondaryDef secondaryDef;
+    private SecondaryResource secondaryDef;
 
     // Reference for the harvest designation
     private DesignationDef harvestDesignation;
@@ -51,7 +55,7 @@ namespace RimWorld {
         if (Prefs.DevMode && sec_GrowthInt >= 0.9999f) {
           return true;
         }
-        return sec_GrowthInt >= 0.9999f && growthInt > secondaryDef.parentMinGrowth && GrowsThisSeason;
+        return sec_GrowthInt >= 0.9999f && growthInt >= secondaryDef.parentMinGrowth && GrowsThisSeason;
       }
     }
 
@@ -97,8 +101,38 @@ namespace RimWorld {
       }
     }
 
+		// Display additional info on the inspect window that isn't shown normally
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats {
+			get {
+				foreach (StatDrawEntry entry in base.SpecialDisplayStats) {
+					yield return entry;
+				}
+				string seasons = string.Empty;
+				bool conjugate = false;
+				
+				if (seasons.NullOrEmpty() || secondaryDef.limitedGrowSeasons.Count >= 4) {
+					seasons = Static.DisplayStat_GrowsInAllSeasons;
+				}
+				else {
+					for (int i = 0; i < secondaryDef.limitedGrowSeasons.Count; i++) {
+						if (conjugate) {
+							seasons += ", ";
+						}
+						conjugate = true;
+						seasons += secondaryDef.limitedGrowSeasons[i].LabelCap();
+					}
+				}
 
-    public override void ExposeData() {
+				yield return new StatDrawEntry(StatCategoryDefOf.PawnMisc, thingLabel + " " + "GrowingTime".Translate().ToLower(), secondaryDef.growDays.ToString("0.##") + " " + "Days".Translate());
+				yield return new StatDrawEntry(StatCategoryDefOf.PawnMisc, $"{thingLabel} {Static.DisplayStat_MinPlantGrowth}", secondaryDef.parentMinGrowth.ToStringPercent()) {
+					overrideReportText = Static.DisplayStat_MinGrowthReport
+				};
+				yield return new StatDrawEntry(StatCategoryDefOf.PawnMisc, $"{thingLabel} {Static.DisplayStat_LimitedGrowSeasons}", seasons);
+			}
+		}
+
+
+		public override void ExposeData() {
       base.ExposeData();
       Scribe_Values.Look(ref sec_GrowthInt, "secondaryGrowth", 0f);
     }
@@ -121,13 +155,20 @@ namespace RimWorld {
     public override void SpawnSetup(Map map, bool respawningAfterLoad) {
       base.SpawnSetup(map, respawningAfterLoad);
 
-      if (DefDatabase<PlantWithSecondaryDef>.GetNamed(def.defName, false) == null) {
-        Log.ErrorOnce("Zen Garden:: Cannot find PlantWithSecondaryDef for " + def.defName + ". Make sure the defNames are the same for both plant and PlantWithSecondaryDef.", 316265140);
+      if (def.GetModExtension<SecondaryResource>() == null) {
+        Log.ErrorOnce($"Zen Garden:: Missing SecondaryResource DefModExtension for {def.defName}.", 316265143);
         return;
       }
 
-      secondaryDef = DefDatabase<PlantWithSecondaryDef>.GetNamed(def.defName);
-      harvestDesignation = DefDatabase<DesignationDef>.GetNamed("ZEN_Designator_PlantsHarvestSecondary");
+      secondaryDef = def.GetModExtension<SecondaryResource>();
+
+      // If a SeedsPlease seed exists, and SeedsPlease is installed, assign it
+      string seed = secondaryDef.seedsPleaseSeedDef;
+      if (!seed.NullOrEmpty() && DefDatabase<ThingDef>.GetNamed(seed, false) != null && ModsConfig.ActiveModsInLoadOrder.Any(m => m.Name == "SeedsPlease")) {
+        seedDef = DefDatabase<ThingDef>.GetNamed(seed);
+      }
+
+      harvestDesignation = Static.DesignationHarvestSecondary;
 
       // Allow the secondary thing to start grown similar to the parent plant
       if (sec_GrowthInt == -1f) {
@@ -143,28 +184,36 @@ namespace RimWorld {
 
       // Create the blooming graphic if there is one
       if (!secondaryDef.bloomingGraphicPath.NullOrEmpty()) {
-        LongEventHandler.ExecuteWhenFinished(delegate
-        {
+        LongEventHandler.ExecuteWhenFinished(delegate {
           bloomingGraphic = GraphicDatabase.Get(def.graphicData.graphicClass, secondaryDef.bloomingGraphicPath, def.graphic.Shader, def.graphicData.drawSize, def.graphicData.color, def.graphicData.colorTwo);
         });
       }
     }
 
 
-    public override void TickLong() {
+		public override void TickLong() {
       base.TickLong();
+
+      if (Destroyed) {
+        return;
+      }
 
       // If the parent is able to grow, grow the secondary thing as well
       if (GrowsThisSeason) {
         if (GenPlant.GrowthSeasonNow(Position, Map)) {
           if (HasEnoughLightToGrow) {
+						bool gfxUpdate = Sec_HarvestableNow;
             sec_GrowthInt = Mathf.Clamp01(sec_GrowthInt + ((Sec_GrowthPerTick * 2000f) * AdjustedGrowth));
+						// If there is a blooming graphic and the plant is now harvestable, dirty the map mesh here to reset the graphic
+						if ((gfxUpdate != Sec_HarvestableNow) && bloomingGraphic != null && Sec_HarvestableNow && !LeaflessNow) {
+							Map.mapDrawer.MapMeshDirty(Position, MapMeshFlag.Things);
+						}
           }
-        } 
+        }
       }
       // If this isn't the right season, restart growth
       // Disabled in DevMode to allow insta-grow button
-      else if (!Prefs.DevMode){
+      else if (!Prefs.DevMode) {
         sec_GrowthInt = 0;
       }
     }
@@ -176,12 +225,16 @@ namespace RimWorld {
       // If this isn't currently harvestable, throw a warning
       // Converts this defName to a thingDef for labelling correctly
       if (!Sec_HarvestableNow) {
-        Log.Warning("Zen Garden:: Tried to harvest " + thingLabel + " from " + ThingDef.Named(def.defName).LabelCap + " at " + Position.ToString() + ", but it's not harvestable.");
+        Log.Warning($"Zen Garden:: Tried to harvest {thingLabel} from {ThingDef.Named(def.defName).LabelCap} at {Position.ToString()}, but it's not harvestable.");
         return null;
       }
       Thing secondary = ThingMaker.MakeThing(secondaryDef.harvestedThingDef, null);
       // By default, minToHarvest == int.MaxValue so that exact stackcounts may be used
       if (secondaryDef.minToHarvest == int.MaxValue) {
+        if (secondaryDef.maxToHarvest == 0) {
+          Log.Error($"Zen Garden:: {secondaryDef.harvestedThingDef.LabelCap} doesn't have a set maxToHarvest. Unable to yield resources.");
+          return null;
+        }
         secondary.stackCount = secondaryDef.maxToHarvest;
       }
       // If minToHarvest has a different value, a random number is given
@@ -215,9 +268,14 @@ namespace RimWorld {
 
       // Add button for insta-growing the secondary thing
       Command_Action DevGrow = new Command_Action() {
-        defaultLabel = "DEBUG: Grow " + thingLabel,
-        activateSound = SoundDef.Named("Click"),
-        action = () => { sec_GrowthInt = 1f; },
+        defaultLabel = "Debug: Grow " + thingLabel,
+        activateSound = SoundDefOf.Click,
+        action = () => {
+					sec_GrowthInt = 1f;
+					if (bloomingGraphic != null) {
+						Map.mapDrawer.MapMeshDirty(Position, MapMeshFlag.Things);
+					}
+				},
       };
 
       if (Prefs.DevMode && !Sec_HarvestableNow) {
@@ -227,9 +285,9 @@ namespace RimWorld {
       // Add button for manually designating harvesting
       Command_Action DesignateHarvest = new Command_Action() {
         defaultLabel = "DesignatorHarvest".Translate(),
-        defaultDesc = "ZEN_DesignatorHarvestSecondaryDesc".Translate(),
-        icon = ContentFinder<Texture2D>.Get("Cupro/UI/Designations/HarvestSecondary"),
-        activateSound = SoundDef.Named("Click"),
+        defaultDesc = Static.DescriptionHarvestSecondary,
+        icon = Static.texHarvestSecondary,
+        activateSound = SoundDefOf.Click,
         action = () => {
           Map.designationManager.AddDesignation(new Designation(this, harvestDesignation));
         },
@@ -245,7 +303,7 @@ namespace RimWorld {
     }
 
 
-    public override string GetInspectString() {
+		public override string GetInspectString() {
       StringBuilder stringBuilder = new StringBuilder();
       if (LifeStage == PlantLifeStage.Growing) {
         stringBuilder.AppendLine("PercentGrowth".Translate(new object[]
@@ -265,7 +323,7 @@ namespace RimWorld {
             }));
           }
           else {
-            stringBuilder.AppendLine(thingLabel + " " + "ZEN_CannotGrowBadSeason".Translate());
+            stringBuilder.AppendLine(thingLabel + " " + Static.ReportBadSeason);
           }
         }
 
@@ -309,7 +367,7 @@ namespace RimWorld {
             }));
           }
           else {
-            stringBuilder.AppendLine(thingLabel + " " + "ZEN_CannotGrowBadSeason".Translate());
+            stringBuilder.AppendLine(thingLabel + " " + Static.ReportBadSeason);
           } 
         }
 

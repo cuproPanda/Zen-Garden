@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
+
+using RimWorld;
 using Verse;
 
-// Moved to RimWorld namespace to allow multiple mod usage
-namespace RimWorld {
+namespace ZenGarden {
 
-  public class PlantWithSecondaryDef : Def {
-
-    // Make sure to have a duplicate defName for the secondary def and the parent def!
+  public class SecondaryResource : DefModExtension {
 
     // Customize how quickly this grows and when it is first harvestable
-    public float growDays;
+    public float growDays = 4f;
     public float parentMinGrowth = 0.5f;
 
     // If the plant uses a different graphic when blooming
@@ -21,6 +20,9 @@ namespace RimWorld {
 
     // What to harvest
     public ThingDef harvestedThingDef;
+    // If SeedsPlease is installed, this is a seed that will drop when the secondary thing is harvested
+    // This is a string because the ThingDef is added via a patch
+    public string seedsPleaseSeedDef;
     // If the thing harvested doesn't match up with what is growing (e.g. latex bucket vs latex), use a special label
     public string specialThingDefLabel;
     // If an exact amount is desired, only put a value for maxToHarvest. minToHarvest gets checked, and if it's MaxValue only maxToHarvest is used

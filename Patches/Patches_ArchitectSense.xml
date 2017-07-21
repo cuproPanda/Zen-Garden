@@ -76,7 +76,7 @@
 							<li>ZEN_GravelRoughMarble</li>
 							<li>ZEN_GravelRoughClaystone</li>
 							<li>ZEN_GravelRoughAndesite</li>
-							<li>ZEN_GravelRoughRhyolite</li>
+							<li>ZEN_GravelRoughSyenite</li>
 							<li>ZEN_GravelRoughGneiss</li>
 							<li>ZEN_GravelRoughQuartzite</li>
 							<li>ZEN_GravelRoughSchist</li>
@@ -106,7 +106,7 @@
 							<li>ZEN_GravelNormalMarble</li>
 							<li>ZEN_GravelNormalClaystone</li>
 							<li>ZEN_GravelNormalAndesite</li>
-							<li>ZEN_GravelNormalRhyolite</li>
+							<li>ZEN_GravelNormalSyenite</li>
 							<li>ZEN_GravelNormalGneiss</li>
 							<li>ZEN_GravelNormalQuartzite</li>
 							<li>ZEN_GravelNormalSchist</li>
@@ -237,7 +237,7 @@
 							<li>ZEN_GravelRoughMarble</li>
 							<li>ZEN_GravelRoughClaystone</li>
 							<li>ZEN_GravelRoughAndesite</li>
-							<li>ZEN_GravelRoughRhyolite</li>
+							<li>ZEN_GravelRoughSyenite</li>
 							<li>ZEN_GravelRoughGneiss</li>
 							<li>ZEN_GravelRoughQuartzite</li>
 							<li>ZEN_GravelRoughSchist</li>
@@ -284,7 +284,7 @@
 							<li>ZEN_GravelNormalMarble</li>
 							<li>ZEN_GravelNormalClaystone</li>
 							<li>ZEN_GravelNormalAndesite</li>
-							<li>ZEN_GravelNormalRhyolite</li>
+							<li>ZEN_GravelNormalSyenite</li>
 							<li>ZEN_GravelNormalGneiss</li>
 							<li>ZEN_GravelNormalQuartzite</li>
 							<li>ZEN_GravelNormalSchist</li>

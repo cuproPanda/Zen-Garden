@@ -32,7 +32,7 @@ namespace ZenGarden {
       }
 
       // If the thing doesn't have a matching PlantWithSecondaryDef
-      if (DefDatabase<PlantWithSecondaryDef>.GetNamed(t.def.defName, false) == null) {
+      if (!(t is PlantWithSecondary)) {
         return "ZEN_MustDesignatePlantsWithSecondary".Translate();
       }
       // If the thing is already designated
@@ -52,7 +52,7 @@ namespace ZenGarden {
       if (!c.InBounds(Map) || c.Fogged(Map)) {
         return false;
       }
-      Plant plant = c.GetPlant(Map);
+      PlantWithSecondary plant = (PlantWithSecondary)c.GetPlant(Map);
       if (plant == null) {
         return "ZEN_MustDesignatePlantsWithSecondary".Translate();
       }

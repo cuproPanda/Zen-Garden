@@ -11,4 +11,12 @@
 	<ZEN_MustDesignatePlantsWithSecondary>Must designate plants with a secondary resource.</ZEN_MustDesignatePlantsWithSecondary>
 	<ZEN_MustDesignateHarvestableSecondary>Must designate plants with a harvestable secondary resource.</ZEN_MustDesignateHarvestableSecondary>
 
+	<!-- Orchard Stuff -->
+	<ZEN_OrchardZone>Orchard zone</ZEN_OrchardZone>
+	<ZEN_DesignatorOrchardZoneDesc>Create a zone where your colonists will try to grow a certain kind of plant which has a secondary resource. Colonists will harvest the secondary resources as they grow, but will not cut the plants, unless they are designated to be cut.</ZEN_DesignatorOrchardZoneDesc>
+	<ZEN_DisplayStat_LimitedGrowSeasons>growing seasons</ZEN_DisplayStat_LimitedGrowSeasons>
+	<ZEN_DisplayStat_GrowsInAllSeasons>All seasons</ZEN_DisplayStat_GrowsInAllSeasons>
+	<ZEN_DisplayStat_MinPlantGrowth>min. plant growth</ZEN_DisplayStat_MinPlantGrowth>
+	<ZEN_DisplayStat_MinGrowthReport>This resource is only able to be harvested after the full plant has matured to a certain point.</ZEN_DisplayStat_MinGrowthReport>
+
 </LanguageData>
