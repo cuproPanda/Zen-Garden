@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="WoodLog"]/graphicData/texPath</xpath>
+		<value>
+			<texPath>Cupro/Item/Material/WoodLog</texPath>
+		</value>
+	</Operation>
+
+</Patch>

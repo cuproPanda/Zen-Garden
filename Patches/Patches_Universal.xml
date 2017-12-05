@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- Add woods to all fuelFilters which accept WoodLogs -->
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef/comps/li[@Class = "CompProperties_Refuelable" and fuelFilter/thingDefs/li[text() = "WoodLog"]]/fuelFilter/thingDefs</xpath>
+				<value>
+					<li>ZEN_CherryWood</li>
+					<li>ZEN_EbonyWood</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

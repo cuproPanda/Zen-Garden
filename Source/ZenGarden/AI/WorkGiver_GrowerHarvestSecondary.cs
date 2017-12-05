@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 using RimWorld;
 using Verse;
@@ -16,16 +17,22 @@ namespace ZenGarden {
 
 
 		public override IEnumerable<IntVec3> PotentialWorkCellsGlobal(Pawn pawn) {
-			Danger maxDanger = pawn.NormalMaxDanger();
+			IEnumerable<Thing> list = pawn.Map.listerThings.ThingsMatching(ThingRequest.ForGroup(ThingRequestGroup.Plant)).Where(p => p is PlantWithSecondary);
 			List<Zone> zonesList = pawn.Map.zoneManager.AllZones;
+
+			foreach (Thing plant in list) {
+				if (pawn.CanReach(plant, PathEndMode.OnCell, pawn.NormalMaxDanger(), false, TraverseMode.ByPawn)) {
+					yield return plant.Position;
+				}
+			}
+
 			for (int z = 0; z < zonesList.Count; z++) {
-				Zone_Orchard orchardZone = zonesList[z] as Zone_Orchard;
-				if (orchardZone != null) {
+				if (zonesList[z] is Zone_Orchard orchardZone) {
 					if (orchardZone.cells.Count == 0) {
 						Log.ErrorOnce("Orchard zone has 0 cells: " + orchardZone, -563487);
 					}
 					else if (!orchardZone.ContainsStaticFire) {
-						if (pawn.CanReach(orchardZone.Cells[0], PathEndMode.OnCell, maxDanger, false, TraverseMode.ByPawn)) {
+						if (pawn.CanReach(orchardZone.Cells[0], PathEndMode.OnCell, pawn.NormalMaxDanger(), false, TraverseMode.ByPawn)) {
 							for (int k = 0; k < orchardZone.cells.Count; k++) {
 								yield return orchardZone.cells[k];
 							}
@@ -45,8 +52,9 @@ namespace ZenGarden {
 					break;
 				}
 			}
-			return plant != null && !plant.IsForbidden(pawn) && plant.Sec_HarvestableNow && pawn.CanReserve(plant);
+			return plant != null && !plant.IsForbidden(pawn) && plant.Sec_HarvestableNow && pawn.CanReserve(plant) && HarvestableLocation(plant, c);
 		}
+
 
 		public override Job JobOnCell(Pawn pawn, IntVec3 c) {
 			Job job = new Job(ZenDefOf.ZEN_PlantsHarvestSecondary);
@@ -82,7 +90,20 @@ namespace ZenGarden {
 				return false;
 			}
 			PlantWithSecondary sec = (PlantWithSecondary)plant;
-			return plant != null && !plant.IsForbidden(pawn) && sec.Sec_HarvestableNow && plant.LifeStage == PlantLifeStage.Mature && pawn.CanReserve(plant, 1, -1, null, false);
+			return plant != null && 
+				!plant.IsForbidden(pawn) && 
+				sec.Sec_HarvestableNow && 
+				plant.LifeStage == PlantLifeStage.Mature && 
+				pawn.CanReserve(plant, 1, -1, null, false) && 
+				HarvestableLocation(plant, c);
+		}
+
+
+		private bool HarvestableLocation(Plant plant, IntVec3 c) {
+			if (c.GetZone(plant.Map) is Zone_Orchard) {
+				return true;
+			}
+			return plant.Map.designationManager.DesignationOn(plant) != null && plant.Map.designationManager.DesignationOn(plant).def == ZenDefOf.ZEN_Designator_PlantsHarvestSecondary;
 		}
 
 

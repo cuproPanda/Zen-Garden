@@ -18,12 +18,6 @@
 				<min>3</min>
 				<max>8</max>
 			</wildClusterSizeRange>
-			<wildBiomes>
-				<TropicalRainforest>0.003</TropicalRainforest>
-				<TemperateForest>0.01</TemperateForest>
-				<AridShrubland>0.003</AridShrubland>
-				<BorealForest>0.005</BorealForest>
-			</wildBiomes>
 		</plant>
 	</ThingDef>
 
@@ -40,6 +34,13 @@
 					<li>Spring</li>
 					<li>Summer</li>
 				</limitedGrowSeasons>
+				<forbiddenGrowBiomes>
+					<li>Tundra</li>
+					<li>ColdBog</li>
+					<li>IceSheet</li>
+					<li>SeaIce</li>
+					<li>ExtremeDesert</li>
+				</forbiddenGrowBiomes>
 				<harvestedThingDef>ZEN_Cherries</harvestedThingDef>
 				<minToHarvest>20</minToHarvest>
 				<maxToHarvest>35</maxToHarvest>
@@ -54,13 +55,19 @@
 		<plant>
 			<leaflessGraphicPath>Cupro/Object/Plant/CherryTree_Leafless</leaflessGraphicPath>
 			<harvestedThingDef>ZEN_CherryWood</harvestedThingDef>
+			<wildBiomes>
+				<TropicalRainforest>0.01</TropicalRainforest>
+				<TemperateForest>0.01</TemperateForest>
+				<AridShrubland>0.003</AridShrubland>
+				<BorealForest>0.003</BorealForest>
+			</wildBiomes>
 		</plant>
 	</ThingDef>
 
 	<ThingDef ParentName="ZEN_OrchardTreeBase">
 		<defName>ZEN_PlantTreePersimmon</defName>
 		<label>persimmon tree</label>
-		<description>A hardwood tree well known for its delicious soft fruit and uniquely dark heartwood. Produces persimmons in the autumn and winter. Can also be chopped down for ebony wood.</description>
+		<description>A hardwood tree well known for its delicious soft fruit and uniquely dark heartwood. Produces persimmons in the fall and winter. Can also be chopped down for ebony wood.</description>
 		<modExtensions>
 			<li Class="ZenGarden.SecondaryResource">
 				<growDays>4.5</growDays>
@@ -70,6 +77,10 @@
 					<li>Fall</li>
 					<li>Winter</li>
 				</limitedGrowSeasons>
+				<forbiddenGrowBiomes>
+					<li>Desert</li>
+					<li>ExtremeDesert</li>
+				</forbiddenGrowBiomes>
 				<harvestedThingDef>ZEN_Persimmon</harvestedThingDef>
 				<minToHarvest>10</minToHarvest>
 				<maxToHarvest>15</maxToHarvest>
@@ -79,18 +90,27 @@
 			<texPath>Cupro/Object/Plant/PersimmonTree_Normal</texPath>
 		</graphicData>
 		<statBases>
-			<Beauty>10</Beauty>
+			<Beauty>3</Beauty>
 		</statBases>
 		<plant>
+			<growDays>35</growDays>
+			<lifespanFraction>6.857</lifespanFraction>
 			<leaflessGraphicPath>Cupro/Object/Plant/PersimmonTree_Normal</leaflessGraphicPath>
 			<harvestedThingDef>ZEN_EbonyWood</harvestedThingDef>
+			<wildBiomes>
+				<TropicalRainforest>0.001</TropicalRainforest>
+				<TemperateForest>0.06</TemperateForest>
+				<AridShrubland>0.002</AridShrubland>
+				<BorealForest>0.01</BorealForest>
+				<Tundra>0.001</Tundra>
+			</wildBiomes>
 		</plant>
 	</ThingDef>
 
 	<ThingDef ParentName="ZEN_OrchardTreeBase">
 		<defName>ZEN_PlantTreeCrabapple</defName>
 		<label>crabapple tree</label>
-		<description>A colorful hardwood tree which grows small apples. Produces crabapples in the summer and autumn. Can also be chopped down for wood.</description>
+		<description>A colorful hardwood tree which grows small apples. Produces crabapples in the summer and fall. Can also be chopped down for wood.</description>
 		<modExtensions>
 			<li Class="ZenGarden.SecondaryResource">
 				<growDays>4</growDays>
@@ -100,6 +120,12 @@
 					<li>Summer</li>
 					<li>Fall</li>
 				</limitedGrowSeasons>
+				<forbiddenGrowBiomes>
+					<li>Tundra</li>
+					<li>IceSheet</li>
+					<li>SeaIce</li>
+					<li>ExtremeDesert</li>
+				</forbiddenGrowBiomes>
 				<harvestedThingDef>ZEN_Crabapples</harvestedThingDef>
 				<minToHarvest>25</minToHarvest>
 				<maxToHarvest>35</maxToHarvest>
@@ -113,6 +139,12 @@
 		</statBases>
 		<plant>
 			<leaflessGraphicPath>Cupro/Object/Plant/CrabappleTree_Leafless</leaflessGraphicPath>
+			<wildBiomes>
+				<TropicalRainforest>0.003</TropicalRainforest>
+				<TemperateForest>0.01</TemperateForest>
+				<AridShrubland>0.003</AridShrubland>
+				<BorealForest>0.006</BorealForest>
+			</wildBiomes>
 		</plant>
 	</ThingDef>
 

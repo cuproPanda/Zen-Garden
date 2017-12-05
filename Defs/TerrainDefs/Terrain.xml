@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<TerrainDefs>
+<Defs>
 
 	<TerrainDef Name="GravelFloorBase" Abstract="True">
 		<affordances>
@@ -8,15 +8,15 @@
 		</affordances>
 		<layerable>true</layerable>
 		<designationCategory>ZEN_Decoration</designationCategory>
-		<EdgeType>FadeRough</EdgeType>
+		<edgeType>FadeRough</edgeType>
 		<acceptFilth>false</acceptFilth>
 		<avoidWander>true</avoidWander>
 		<takeFootprints>false</takeFootprints>
 		<holdSnow>true</holdSnow>
 		<!-- The stone is broken into gravel, so it shouldn't yield usable blocks -->
 		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
-		<Fertility>0</Fertility>
-		<AcceptTerrainSourceFilth>false</AcceptTerrainSourceFilth>
+		<fertility>0</fertility>
+		<acceptTerrainSourceFilth>false</acceptTerrainSourceFilth>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 	</TerrainDef>
 
@@ -31,9 +31,9 @@
 			<WorkToBuild>150</WorkToBuild>
 		</statBases>
 		<avoidWander>false</avoidWander>
-		<RenderPrecedence>221</RenderPrecedence>
-		<PathCost>1</PathCost>
-		<ScatterType>Rocky</ScatterType>
+		<renderPrecedence>221</renderPrecedence>
+		<pathCost>1</pathCost>
+		<scatterType>Rocky</scatterType>
 		<tags>
 			<li>Road</li>
 		</tags>
@@ -46,8 +46,8 @@
 		<statBases>
 			<WorkToBuild>350</WorkToBuild>
 		</statBases>
-		<RenderPrecedence>222</RenderPrecedence>
-		<PathCost>2</PathCost>
+		<renderPrecedence>222</renderPrecedence>
+		<pathCost>2</pathCost>
 		<tags>
 			<!-- This tag is used to allow the PlaceWorker to distinguish it without 
 			needing to check multiple defs every time raked gravel is placed -->
@@ -58,98 +58,98 @@
 	<!--========== Base Inheritors ==========-->
 
 	<TerrainDef ParentName="ZEN_RoughBase">
-		<DefName>ZEN_GravelRoughSandstone</DefName>
+		<defName>ZEN_GravelRoughSandstone</defName>
 		<label>rough sandstone gravel</label>
 		<color>(126,104,94)</color>
-		<CostList>
+		<costList>
 			<BlocksSandstone>2</BlocksSandstone>
-		</CostList>
+		</costList>
 	</TerrainDef>	
 	<TerrainDef ParentName="ZEN_RoughBase">
-		<DefName>ZEN_GravelRoughGranite</DefName>
+		<defName>ZEN_GravelRoughGranite</defName>
 		<label>rough granite gravel</label>
 		<color>(105,95,97)</color>
-		<CostList>
+		<costList>
 			<BlocksGranite>2</BlocksGranite>
-		</CostList>
+		</costList>
 	</TerrainDef>	
 	<TerrainDef ParentName="ZEN_RoughBase">
-		<DefName>ZEN_GravelRoughLimestone</DefName>
+		<defName>ZEN_GravelRoughLimestone</defName>
 		<label>rough limestone gravel</label>
 		<color>(158,153,135)</color>
-		<CostList>
+		<costList>
 			<BlocksLimestone>2</BlocksLimestone>
-		</CostList>
+		</costList>
 	</TerrainDef>	
 	<TerrainDef ParentName="ZEN_RoughBase">
-		<DefName>ZEN_GravelRoughSlate</DefName>
+		<defName>ZEN_GravelRoughSlate</defName>
 		<label>rough slate gravel</label>
 		<color>(70,70,70)</color>
-		<CostList>
+		<costList>
 			<BlocksSlate>2</BlocksSlate>
-		</CostList>
+		</costList>
 	</TerrainDef>	
 	<TerrainDef ParentName="ZEN_RoughBase">
-		<DefName>ZEN_GravelRoughMarble</DefName>
+		<defName>ZEN_GravelRoughMarble</defName>
 		<label>rough marble gravel</label>
 		<color>(132,135,132)</color>
-		<CostList>
+		<costList>
 			<BlocksMarble>2</BlocksMarble>
-		</CostList>
+		</costList>
 	</TerrainDef>	
 
 
 
 	<TerrainDef ParentName="ZEN_NormalBase">
-		<DefName>ZEN_GravelNormalSandstone</DefName>
+		<defName>ZEN_GravelNormalSandstone</defName>
 		<label>unraked sandstone gravel</label>
 		<color>(126,104,94)</color>
-		<CostList>
+		<costList>
 			<BlocksSandstone>4</BlocksSandstone>
-		</CostList>
+		</costList>
 	</TerrainDef>	
 	<TerrainDef ParentName="ZEN_NormalBase">
-		<DefName>ZEN_GravelNormalGranite</DefName>
+		<defName>ZEN_GravelNormalGranite</defName>
 		<label>unraked granite gravel</label>
 		<color>(105,95,97)</color>
-		<CostList>
+		<costList>
 			<BlocksGranite>4</BlocksGranite>
-		</CostList>
+		</costList>
 	</TerrainDef>	
 	<TerrainDef ParentName="ZEN_NormalBase">
-		<DefName>ZEN_GravelNormalLimestone</DefName>
+		<defName>ZEN_GravelNormalLimestone</defName>
 		<label>unraked limestone gravel</label>
 		<color>(158,153,135)</color>
-		<CostList>
+		<costList>
 			<BlocksLimestone>4</BlocksLimestone>
-		</CostList>
+		</costList>
 	</TerrainDef>	
 	<TerrainDef ParentName="ZEN_NormalBase">
-		<DefName>ZEN_GravelNormalSlate</DefName>
+		<defName>ZEN_GravelNormalSlate</defName>
 		<label>unraked slate gravel</label>
 		<color>(70,70,70)</color>
-		<CostList>
+		<costList>
 			<BlocksSlate>4</BlocksSlate>
-		</CostList>
+		</costList>
 	</TerrainDef>	
 	<TerrainDef ParentName="ZEN_NormalBase">
-		<DefName>ZEN_GravelNormalMarble</DefName>
+		<defName>ZEN_GravelNormalMarble</defName>
 		<label>unraked marble gravel</label>
 		<color>(132,135,132)</color>
-		<CostList>
+		<costList>
 			<BlocksMarble>4</BlocksMarble>
-		</CostList>
+		</costList>
 	</TerrainDef>	
 	<TerrainDef ParentName="ZEN_NormalBase">
-		<DefName>ZEN_GravelNormalJade</DefName>
+		<defName>ZEN_GravelNormalJade</defName>
 		<label>unraked jade gravel</label>
 		<color>(85,118,69)</color>
 		<statBases>
 			<Beauty>4</Beauty>
 		</statBases>
-		<CostList>
+		<costList>
 			<Jade>4</Jade>
-		</CostList>
+		</costList>
 	</TerrainDef>	
 
-</TerrainDefs>
+</Defs>

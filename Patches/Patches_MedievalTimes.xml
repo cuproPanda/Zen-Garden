@@ -4,19 +4,19 @@
 	<!-- If Medieval Times is found, use cherry wood -->
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
-		<Operations>
+		<operations>
 			<li Class="ZenGarden.PatchOperationModDependent">
 				<modName>Medieval Times</modName>
 			</li>
 			<li Class="PatchOperationReplace">
-				<xpath>/ThingDefs/ThingDef[defName = "MedTimes_Desk"]/costList</xpath>
+				<xpath>/Defs/ThingDef[defName = "MedTimes_Desk"]/costList</xpath>
 				<value>
 					<costList>
 						<ZEN_CherryWood>60</ZEN_CherryWood>
 					</costList>		
 				</value>
 			</li>
-		</Operations>
+		</operations>
 	</Operation>
 
 </Patch>

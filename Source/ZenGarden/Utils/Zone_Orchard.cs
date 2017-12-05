@@ -11,12 +11,11 @@ namespace ZenGarden {
 
 		private ThingDef plantDefToGrow = ZenDefOf.ZEN_PlantTreeCherry;
 		public bool allowSow = true;
+		public bool CanAcceptSowNow() => allowSow;
 
-		public override bool IsMultiselectable {
-			get {
-				return true;
-			}
-		}
+		IEnumerable<IntVec3> IPlantToGrowSettable.Cells => Cells;
+
+		public override bool IsMultiselectable => true;
 
 		protected override Color NextZoneColor {
 			get {
@@ -62,18 +61,18 @@ namespace ZenGarden {
 			string text = string.Empty;
 			if (!Cells.NullOrEmpty()) {
 				IntVec3 c = Cells.First();
-				if (c.UsesOutdoorTemperature(base.Map)) {
+				if (c.UsesOutdoorTemperature(Map)) {
 					string text2 = text;
 					text = string.Concat(new string[]
 					{
 						text2,
 						"OutdoorGrowingPeriod".Translate(),
 						": ",
-						Zone_Growing.GrowingQuadrumsDescription(base.Map.Tile),
+						Zone_Growing.GrowingQuadrumsDescription(Map.Tile),
 						"\n"
 					});
 				}
-				if (GenPlant.GrowthSeasonNow(c, base.Map)) {
+				if (GenPlant.GrowthSeasonNow(c, Map)) {
 					text += "GrowSeasonHereNow".Translate();
 				}
 				else {
@@ -108,11 +107,6 @@ namespace ZenGarden {
 			if (plantDef.thingClass == typeof(PlantWithSecondary)) {
 				plantDefToGrow = plantDef;
 			}
-		}
-
-
-		public bool CanAcceptSowNow() {
-			return allowSow;
 		}
 	}
 }

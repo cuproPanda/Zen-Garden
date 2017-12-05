@@ -10,7 +10,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/DesignationCategoryDef[DefName="Zone"]/specialDesignatorClasses</xpath>
+		<xpath>/Defs/DesignationCategoryDef[defName="Zone"]/specialDesignatorClasses</xpath>
 		<value>
 			<li>ZenGarden.Designator_ZoneAdd_Orchard</li>
 		</value>

@@ -13,42 +13,46 @@ namespace ZenGarden {
     private float surroundingBeauty;
 
 
-    protected override IEnumerable<Toil> MakeNewToils() {
+		public override bool TryMakePreToilReservations() {
+			return pawn.Reserve(job.targetA, job, job.def.joyMaxParticipants, 0);
+		}
+
+
+		protected override IEnumerable<Toil> MakeNewToils() {
       // Set fail conditions
-      this.FailOnBurningImmobile(BenchInd);
-      this.FailOnDespawnedNullOrForbidden(BenchInd);
+      this.EndOnDespawnedOrNull(TargetIndex.A, JobCondition.Incompletable);
 
       // Reference the tick manager so Find isn't constantly called
       TickManager tickMan = Find.TickManager;
 
-      // Reserve the bench, go to it, then sit down
-      yield return Toils_Reserve.Reserve(BenchInd);
+      // Go to the bench
       yield return Toils_Goto.GotoCell(BenchInd, PathEndMode.OnCell);
 
       // Set up the toil
-      Toil sitAtBench = new Toil();
       JobDef joyJob = DefDatabase<JobDef>.GetNamed("ZEN_SitAtScenicBench");
-      sitAtBench.socialMode = RandomSocialMode.Normal;
-      sitAtBench.initAction = () => { surroundingBeauty = BeautyUtility.AverageBeautyPerceptible(pawn.Position, Map); };
-      sitAtBench.tickAction = () => {
-        pawn.needs.joy.GainJoy(joyJob.joyGainRate * 0.000144f, joyJob.joyKind);
-        pawn.needs.joy.GainJoy(Mathf.Min(Mathf.Max(surroundingBeauty / 2f, 0.3f), 2.5f) * 0.000144f, joyJob.joyKind);
-        // Gain comfort from sitting on the bench
-        pawn.GainComfortFromCellIfPossible();
+			Toil sitAtBench = new Toil() {
+				socialMode = RandomSocialMode.Normal,
+				initAction = () => { surroundingBeauty = BeautyUtility.AverageBeautyPerceptible(pawn.Position, Map); },
+				tickAction = () => {
+					pawn.needs.joy.GainJoy(joyJob.joyGainRate * 0.000144f, joyJob.joyKind);
+					pawn.needs.joy.GainJoy(Mathf.Min(Mathf.Max(surroundingBeauty / 2f, 0.3f), 2.5f) * 0.000144f, joyJob.joyKind);
+					// Gain comfort from sitting on the bench
+					pawn.GainComfortFromCellIfPossible();
 
-        // Occasionally look in a different direction, observing the surroundings
-        if (tickMan.TicksGame % 250 == 0) {
-          pawn.Drawer.rotator.FaceCell(GenAdj.RandomAdjacentCellCardinal(pawn.Position));
-        }
+					// Occasionally look in a different direction, observing the surroundings
+					if (tickMan.TicksGame % 250 == 0) {
+						pawn.rotationTracker.FaceCell(GenAdj.RandomAdjacentCellCardinal(pawn.Position));
+					}
 
-        // End this job once the pawn has maxed out their joy
-        if (pawn.needs.joy.CurLevel > 0.9999f) {
-          pawn.jobs.curDriver.EndJobWith(JobCondition.Succeeded);
-        }
-      };
-      sitAtBench.defaultCompleteMode = ToilCompleteMode.Delay;
-      sitAtBench.defaultDuration = CurJob.def.joyDuration;
-      sitAtBench.AddFinishAction(() => {
+					// End this job once the pawn has maxed out their joy
+					if (pawn.needs.joy.CurLevel > 0.9999f) {
+						pawn.jobs.curDriver.EndJobWith(JobCondition.Succeeded);
+					}
+				},
+				defaultCompleteMode = ToilCompleteMode.Delay,
+				defaultDuration = job.def.joyDuration
+			};
+			sitAtBench.AddFinishAction(() => {
         Thought_Memory memory;
         // If the scenery was very beautiful, give a better memory,
         if (surroundingBeauty > 5f) {

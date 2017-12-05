@@ -12,7 +12,7 @@ namespace ZenGarden {
 
 		private PlantWithSecondary Plant {
 			get {
-				return (PlantWithSecondary)CurJob.GetTarget(TargetIndex.A).Thing;
+				return (PlantWithSecondary)job.GetTarget(TargetIndex.A).Thing;
 			}
 		}
 
@@ -23,39 +23,45 @@ namespace ZenGarden {
 		}
 
 
+		public override bool TryMakePreToilReservations() {
+			return pawn.Reserve(job.targetA, job);
+		}
+
+
 		protected override IEnumerable<Toil> MakeNewToils() {
 			yield return Toils_Reserve.Reserve(TargetIndex.A, 1, -1, null);
-			yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.Touch).FailOn(() => GenPlant.AdjacentSowBlocker(CurJob.plantDefToSow, TargetA.Cell, Map) != null).FailOn(() => !CurJob.plantDefToSow.CanEverPlantAt(TargetLocA, Map));
-			Toil sowToil = new Toil();
-			sowToil.initAction = delegate {
-				TargetThingA = GenSpawn.Spawn(CurJob.plantDefToSow, TargetLocA, Map);
-				pawn.Reserve(TargetThingA, 1, -1, null);
-				PlantWithSecondary plant = (PlantWithSecondary)TargetThingA;
-				plant.Growth = 0f;
-				plant.sown = true;
+			yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.Touch).FailOn(() => GenPlant.AdjacentSowBlocker(job.plantDefToSow, TargetA.Cell, Map) != null).FailOn(() => !job.plantDefToSow.CanEverPlantAt(TargetLocA, Map));
+			Toil sowToil = new Toil() {
+				initAction = delegate {
+					TargetThingA = GenSpawn.Spawn(job.plantDefToSow, TargetLocA, Map);
+					pawn.Reserve(TargetThingA, job);
+					PlantWithSecondary plant = (PlantWithSecondary)TargetThingA;
+					plant.Growth = 0f;
+					plant.sown = true;
+				},
+				tickAction = delegate {
+					Pawn actor = GetActor();
+					if (actor.skills != null) {
+						actor.skills.Learn(SkillDefOf.Growing, 0.11f, false);
+					}
+					float statValue = actor.GetStatValue(StatDefOf.PlantWorkSpeed, true);
+					float num = statValue;
+					PlantWithSecondary plant = Plant;
+					if (plant.LifeStage != PlantLifeStage.Sowing) {
+						Log.Error(this + " getting sowing work while not in Sowing life stage.");
+					}
+					sowWorkDone += num;
+					if (sowWorkDone >= plant.def.plant.sowWork) {
+						plant.Growth = 0.05f;
+						plant.Sec_Growth = 0.05f;
+						Map.mapDrawer.MapMeshDirty(plant.Position, MapMeshFlag.Things);
+						actor.records.Increment(RecordDefOf.PlantsSown);
+						ReadyForNextToil();
+						return;
+					}
+				},
+				defaultCompleteMode = ToilCompleteMode.Never
 			};
-			sowToil.tickAction = delegate {
-				Pawn actor = GetActor();
-				if (actor.skills != null) {
-					actor.skills.Learn(SkillDefOf.Growing, 0.11f, false);
-				}
-				float statValue = actor.GetStatValue(StatDefOf.PlantWorkSpeed, true);
-				float num = statValue;
-				PlantWithSecondary plant = Plant;
-				if (plant.LifeStage != PlantLifeStage.Sowing) {
-					Log.Error(this + " getting sowing work while not in Sowing life stage.");
-				}
-				sowWorkDone += num;
-				if (sowWorkDone >= plant.def.plant.sowWork) {
-					plant.Growth = 0.05f;
-					plant.Sec_Growth = 0.05f;
-					Map.mapDrawer.MapMeshDirty(plant.Position, MapMeshFlag.Things);
-					actor.records.Increment(RecordDefOf.PlantsSown);
-					ReadyForNextToil();
-					return;
-				}
-			};
-			sowToil.defaultCompleteMode = ToilCompleteMode.Never;
 			sowToil.FailOnDespawnedNullOrForbidden(TargetIndex.A);
 			sowToil.FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
 			sowToil.WithEffect(EffecterDefOf.Sow, TargetIndex.A);

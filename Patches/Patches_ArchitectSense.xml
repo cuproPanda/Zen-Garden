@@ -3,15 +3,15 @@
 	
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
-		<Operations>
+		<operations>
 			<li Class="ZenGarden.PatchOperationModDependent">
 				<modName>Architect Sense</modName>
 			</li>
 			<li Class="PatchOperationInsert">
-				<xpath>/TerrainDefs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
-				<Order>Prepend</Order>
+				<xpath>/Defs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
+				<order>Prepend</order>
 				<value>
-					<ArchitectSense.DesignationSubCategoryDef>
+					<ArchitectSense.DesignationSubCategoryDef Name="AS_ZEN_Rough">
 						<defName>SubCategory_ZenGardenRough</defName>
 						<label>Rough gravel</label>
 						<description>Rough gravel flooring made for paths. The gravel is too large to be raked.</description>
@@ -28,10 +28,10 @@
 				</value>
 			</li>
 			<li Class="PatchOperationInsert">
-				<xpath>/TerrainDefs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
-				<Order>Prepend</Order>
+				<xpath>/Defs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
+				<order>Prepend</order>
 				<value>
-					<ArchitectSense.DesignationSubCategoryDef>
+					<ArchitectSense.DesignationSubCategoryDef Name="AS_ZEN_Normal">
 						<defName>SubCategory_ZenGardenNormal</defName>
 						<label>Unraked gravel</label>
 						<description>Gravel flooring made from small polished stones. Can be raked into various patterns. Slower to build, but is beautiful to look at.</description>
@@ -48,275 +48,105 @@
 					</ArchitectSense.DesignationSubCategoryDef>
 				</value>
 			</li>
-		</Operations>
+		</operations>
 	</Operation>
 	
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
-		<Operations>
+		<operations>
 			<li Class="ZenGarden.PatchOperationModDependent">
 				<modList>
 					<li>Architect Sense</li>
 					<li>Cupro's Stones</li>
 				</modList>
 			</li>
-			<li Class="PatchOperationInsert">
-				<xpath>/TerrainDefs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
-				<Order>Prepend</Order>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/TerrainDef[@Name="AS_ZEN_Rough"]/defNames</xpath>
 				<value>
-					<ArchitectSense.DesignationSubCategoryDef>
-						<defName>SubCategory_ZenGardenRough</defName>
-						<label>Rough gravel</label>
-						<description>Rough gravel flooring made for paths. The gravel is too large to be raked.</description>
-						<defNames>
-							<li>ZEN_GravelRoughSandstone</li>
-							<li>ZEN_GravelRoughGranite</li>
-							<li>ZEN_GravelRoughLimestone</li>
-							<li>ZEN_GravelRoughSlate</li>
-							<li>ZEN_GravelRoughMarble</li>
-							<li>ZEN_GravelRoughClaystone</li>
-							<li>ZEN_GravelRoughAndesite</li>
-							<li>ZEN_GravelRoughSyenite</li>
-							<li>ZEN_GravelRoughGneiss</li>
-							<li>ZEN_GravelRoughQuartzite</li>
-							<li>ZEN_GravelRoughSchist</li>
-							<li>ZEN_GravelRoughGabbro</li>
-							<li>ZEN_GravelRoughDiorite</li>
-							<li>ZEN_GravelRoughDunite</li>
-							<li>ZEN_GravelRoughPegmatite</li>
-						</defNames>
-						<designationCategory>ZEN_Decoration</designationCategory>
-						<preview>false</preview>
-					</ArchitectSense.DesignationSubCategoryDef>
+					<li>ZEN_GravelRoughClaystone</li>
+					<li>ZEN_GravelRoughAndesite</li>
+					<li>ZEN_GravelRoughSyenite</li>
+					<li>ZEN_GravelRoughGneiss</li>
+					<li>ZEN_GravelRoughQuartzite</li>
+					<li>ZEN_GravelRoughSchist</li>
+					<li>ZEN_GravelRoughGabbro</li>
+					<li>ZEN_GravelRoughDiorite</li>
+					<li>ZEN_GravelRoughDunite</li>
+					<li>ZEN_GravelRoughPegmatite</li>
 				</value>
 			</li>
-			<li Class="PatchOperationInsert">
-				<xpath>/TerrainDefs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
-				<Order>Prepend</Order>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/TerrainDef[@Name="AS_ZEN_Normal"]/defNames</xpath>
 				<value>
-					<ArchitectSense.DesignationSubCategoryDef>
-						<defName>SubCategory_ZenGardenNormal</defName>
-						<label>Unraked gravel</label>
-						<description>Gravel flooring made from small polished stones. Can be raked into various patterns. Slower to build, but is beautiful to look at.</description>
-						<defNames>
-							<li>ZEN_GravelNormalSandstone</li>
-							<li>ZEN_GravelNormalGranite</li>
-							<li>ZEN_GravelNormalLimestone</li>
-							<li>ZEN_GravelNormalSlate</li>
-							<li>ZEN_GravelNormalMarble</li>
-							<li>ZEN_GravelNormalClaystone</li>
-							<li>ZEN_GravelNormalAndesite</li>
-							<li>ZEN_GravelNormalSyenite</li>
-							<li>ZEN_GravelNormalGneiss</li>
-							<li>ZEN_GravelNormalQuartzite</li>
-							<li>ZEN_GravelNormalSchist</li>
-							<li>ZEN_GravelNormalGabbro</li>
-							<li>ZEN_GravelNormalDiorite</li>
-							<li>ZEN_GravelNormalDunite</li>
-							<li>ZEN_GravelNormalPegmatite</li>
-							<li>ZEN_GravelNormalJade</li>
-						</defNames>
-						<designationCategory>ZEN_Decoration</designationCategory>
-						<preview>false</preview>
-					</ArchitectSense.DesignationSubCategoryDef>
+					<li>ZEN_GravelNormalClaystone</li>
+					<li>ZEN_GravelNormalAndesite</li>
+					<li>ZEN_GravelNormalSyenite</li>
+					<li>ZEN_GravelNormalGneiss</li>
+					<li>ZEN_GravelNormalQuartzite</li>
+					<li>ZEN_GravelNormalSchist</li>
+					<li>ZEN_GravelNormalGabbro</li>
+					<li>ZEN_GravelNormalDiorite</li>
+					<li>ZEN_GravelNormalDunite</li>
+					<li>ZEN_GravelNormalPegmatite</li>
 				</value>
 			</li>
-		</Operations>
+		</operations>
 	</Operation>
 	
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
-		<Operations>
+		<operations>
 			<li Class="ZenGarden.PatchOperationModDependent">
 				<modList>
 					<li>Architect Sense</li>
 					<li>Kura's Extra Minerals</li>
 				</modList>
 			</li>
-			<li Class="PatchOperationInsert">
-				<xpath>/TerrainDefs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
-				<Order>Prepend</Order>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/TerrainDef[@Name="AS_ZEN_Rough"]/defNames</xpath>
 				<value>
-					<ArchitectSense.DesignationSubCategoryDef>
-						<defName>SubCategory_ZenGardenRough</defName>
-						<label>Rough gravel</label>
-						<description>Rough gravel flooring made for paths. The gravel is too large to be raked.</description>
-						<defNames>
-							<li>ZEN_GravelRoughSandstone</li>
-							<li>ZEN_GravelRoughGranite</li>
-							<li>ZEN_GravelRoughLimestone</li>
-							<li>ZEN_GravelRoughSlate</li>
-							<li>ZEN_GravelRoughMarble</li>
-							<li>ZEN_GravelRoughEmperadordark</li>
-							<li>ZEN_GravelRoughBlueschist</li>
-							<li>ZEN_GravelRoughSerpentinite</li>
-							<li>ZEN_GravelRoughObsidian</li>
-							<li>ZEN_GravelRoughAnorthosite</li>
-							<li>ZEN_GravelRoughBasalt</li>
-							<li>ZEN_GravelRoughCharnockite</li>
-							<li>ZEN_GravelRoughDacite</li>
-							<li>ZEN_GravelRoughLherzolite</li>
-							<li>ZEN_GravelRoughMonzonite</li>
-							<li>ZEN_GravelRoughScoria</li>
-							<li>ZEN_GravelRoughSovite</li>
-							<li>ZEN_GravelRoughChalk</li>
-							<li>ZEN_GravelRoughJaspillite</li>
-							<li>ZEN_GravelRoughLignite</li>
-							<li>ZEN_GravelRoughSiltstone</li>
-							<li>ZEN_GravelRoughMigmatite</li>
-						</defNames>
-						<designationCategory>ZEN_Decoration</designationCategory>
-						<preview>false</preview>
-					</ArchitectSense.DesignationSubCategoryDef>
+					<li>ZEN_GravelRoughEmperadordark</li>
+					<li>ZEN_GravelRoughBlueschist</li>
+					<li>ZEN_GravelRoughSerpentinite</li>
+					<li>ZEN_GravelRoughObsidian</li>
+					<li>ZEN_GravelRoughAnorthosite</li>
+					<li>ZEN_GravelRoughBasalt</li>
+					<li>ZEN_GravelRoughCharnockite</li>
+					<li>ZEN_GravelRoughDacite</li>
+					<li>ZEN_GravelRoughLherzolite</li>
+					<li>ZEN_GravelRoughMonzonite</li>
+					<li>ZEN_GravelRoughScoria</li>
+					<li>ZEN_GravelRoughSovite</li>
+					<li>ZEN_GravelRoughChalk</li>
+					<li>ZEN_GravelRoughJaspillite</li>
+					<li>ZEN_GravelRoughLignite</li>
+					<li>ZEN_GravelRoughSiltstone</li>
+					<li>ZEN_GravelRoughMigmatite</li>
 				</value>
 			</li>
-			<li Class="PatchOperationInsert">
-				<xpath>/TerrainDefs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
-				<Order>Prepend</Order>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/TerrainDef[@Name="AS_ZEN_Normal"]/defNames</xpath>
 				<value>
-					<ArchitectSense.DesignationSubCategoryDef>
-						<defName>SubCategory_ZenGardenNormal</defName>
-						<label>Unraked gravel</label>
-						<description>Gravel flooring made from small polished stones. Can be raked into various patterns. Slower to build, but is beautiful to look at.</description>
-						<defNames>
-							<li>ZEN_GravelNormalSandstone</li>
-							<li>ZEN_GravelNormalGranite</li>
-							<li>ZEN_GravelNormalLimestone</li>
-							<li>ZEN_GravelNormalSlate</li>
-							<li>ZEN_GravelNormalMarble</li>
-							<li>ZEN_GravelNormalEmperadordark</li>
-							<li>ZEN_GravelNormalBlueschist</li>
-							<li>ZEN_GravelNormalSerpentinite</li>
-							<li>ZEN_GravelNormalObsidian</li>
-							<li>ZEN_GravelNormalAnorthosite</li>
-							<li>ZEN_GravelNormalBasalt</li>
-							<li>ZEN_GravelNormalCharnockite</li>
-							<li>ZEN_GravelNormalDacite</li>
-							<li>ZEN_GravelNormalLherzolite</li>
-							<li>ZEN_GravelNormalMonzonite</li>
-							<li>ZEN_GravelNormalScoria</li>
-							<li>ZEN_GravelNormalSovite</li>
-							<li>ZEN_GravelNormalChalk</li>
-							<li>ZEN_GravelNormalJaspillite</li>
-							<li>ZEN_GravelNormalLignite</li>
-							<li>ZEN_GravelNormalSiltstone</li>
-							<li>ZEN_GravelNormalMigmatite</li>
-							<li>ZEN_GravelNormalJade</li>
-						</defNames>
-						<designationCategory>ZEN_Decoration</designationCategory>
-						<preview>false</preview>
-					</ArchitectSense.DesignationSubCategoryDef>
+					<li>ZEN_GravelNormalEmperadordark</li>
+					<li>ZEN_GravelNormalBlueschist</li>
+					<li>ZEN_GravelNormalSerpentinite</li>
+					<li>ZEN_GravelNormalObsidian</li>
+					<li>ZEN_GravelNormalAnorthosite</li>
+					<li>ZEN_GravelNormalBasalt</li>
+					<li>ZEN_GravelNormalCharnockite</li>
+					<li>ZEN_GravelNormalDacite</li>
+					<li>ZEN_GravelNormalLherzolite</li>
+					<li>ZEN_GravelNormalMonzonite</li>
+					<li>ZEN_GravelNormalScoria</li>
+					<li>ZEN_GravelNormalSovite</li>
+					<li>ZEN_GravelNormalChalk</li>
+					<li>ZEN_GravelNormalJaspillite</li>
+					<li>ZEN_GravelNormalLignite</li>
+					<li>ZEN_GravelNormalSiltstone</li>
+					<li>ZEN_GravelNormalMigmatite</li>
 				</value>
 			</li>
-		</Operations>
-	</Operation>
-
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<Operations>
-			<li Class="ZenGarden.PatchOperationModDependent">
-				<modList>
-					<li>Architect Sense</li>
-					<li>Cupro's Stones</li>
-					<li>Kura's Extra Minerals</li>
-				</modList>
-			</li>
-			<li Class="PatchOperationInsert">
-				<xpath>/TerrainDefs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
-				<Order>Prepend</Order>
-				<value>
-					<ArchitectSense.DesignationSubCategoryDef>
-						<defName>SubCategory_ZenGardenRough</defName>
-						<label>Rough gravel</label>
-						<description>Rough gravel flooring made for paths. The gravel is too large to be raked.</description>
-						<defNames>
-							<li>ZEN_GravelRoughSandstone</li>
-							<li>ZEN_GravelRoughGranite</li>
-							<li>ZEN_GravelRoughLimestone</li>
-							<li>ZEN_GravelRoughSlate</li>
-							<li>ZEN_GravelRoughMarble</li>
-							<li>ZEN_GravelRoughClaystone</li>
-							<li>ZEN_GravelRoughAndesite</li>
-							<li>ZEN_GravelRoughSyenite</li>
-							<li>ZEN_GravelRoughGneiss</li>
-							<li>ZEN_GravelRoughQuartzite</li>
-							<li>ZEN_GravelRoughSchist</li>
-							<li>ZEN_GravelRoughGabbro</li>
-							<li>ZEN_GravelRoughDiorite</li>
-							<li>ZEN_GravelRoughDunite</li>
-							<li>ZEN_GravelRoughPegmatite</li>
-							<li>ZEN_GravelRoughEmperadordark</li>
-							<li>ZEN_GravelRoughBlueschist</li>
-							<li>ZEN_GravelRoughSerpentinite</li>
-							<li>ZEN_GravelRoughObsidian</li>
-							<li>ZEN_GravelRoughAnorthosite</li>
-							<li>ZEN_GravelRoughBasalt</li>
-							<li>ZEN_GravelRoughCharnockite</li>
-							<li>ZEN_GravelRoughDacite</li>
-							<li>ZEN_GravelRoughLherzolite</li>
-							<li>ZEN_GravelRoughMonzonite</li>
-							<li>ZEN_GravelRoughScoria</li>
-							<li>ZEN_GravelRoughSovite</li>
-							<li>ZEN_GravelRoughChalk</li>
-							<li>ZEN_GravelRoughJaspillite</li>
-							<li>ZEN_GravelRoughLignite</li>
-							<li>ZEN_GravelRoughSiltstone</li>
-							<li>ZEN_GravelRoughMigmatite</li>
-						</defNames>
-						<designationCategory>ZEN_Decoration</designationCategory>
-						<preview>false</preview>
-					</ArchitectSense.DesignationSubCategoryDef>
-				</value>
-			</li>
-			<li Class="PatchOperationInsert">
-				<xpath>/TerrainDefs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
-				<Order>Prepend</Order>
-				<value>
-					<ArchitectSense.DesignationSubCategoryDef>
-						<defName>SubCategory_ZenGardenNormal</defName>
-						<label>Unraked gravel</label>
-						<description>Gravel flooring made from small polished stones. Can be raked into various patterns. Slower to build, but is beautiful to look at.</description>
-						<defNames>
-							<li>ZEN_GravelNormalSandstone</li>
-							<li>ZEN_GravelNormalGranite</li>
-							<li>ZEN_GravelNormalLimestone</li>
-							<li>ZEN_GravelNormalSlate</li>
-							<li>ZEN_GravelNormalMarble</li>
-							<li>ZEN_GravelNormalClaystone</li>
-							<li>ZEN_GravelNormalAndesite</li>
-							<li>ZEN_GravelNormalSyenite</li>
-							<li>ZEN_GravelNormalGneiss</li>
-							<li>ZEN_GravelNormalQuartzite</li>
-							<li>ZEN_GravelNormalSchist</li>
-							<li>ZEN_GravelNormalGabbro</li>
-							<li>ZEN_GravelNormalDiorite</li>
-							<li>ZEN_GravelNormalDunite</li>
-							<li>ZEN_GravelNormalPegmatite</li>
-							<li>ZEN_GravelNormalEmperadordark</li>
-							<li>ZEN_GravelNormalBlueschist</li>
-							<li>ZEN_GravelNormalSerpentinite</li>
-							<li>ZEN_GravelNormalObsidian</li>
-							<li>ZEN_GravelNormalAnorthosite</li>
-							<li>ZEN_GravelNormalBasalt</li>
-							<li>ZEN_GravelNormalCharnockite</li>
-							<li>ZEN_GravelNormalDacite</li>
-							<li>ZEN_GravelNormalLherzolite</li>
-							<li>ZEN_GravelNormalMonzonite</li>
-							<li>ZEN_GravelNormalScoria</li>
-							<li>ZEN_GravelNormalSovite</li>
-							<li>ZEN_GravelNormalChalk</li>
-							<li>ZEN_GravelNormalJaspillite</li>
-							<li>ZEN_GravelNormalLignite</li>
-							<li>ZEN_GravelNormalSiltstone</li>
-							<li>ZEN_GravelNormalMigmatite</li>
-							<li>ZEN_GravelNormalJade</li>
-						</defNames>
-						<designationCategory>ZEN_Decoration</designationCategory>
-						<preview>false</preview>
-					</ArchitectSense.DesignationSubCategoryDef>
-				</value>
-			</li>
-		</Operations>
+		</operations>
 	</Operation>
 
 </Patch>

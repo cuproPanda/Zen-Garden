@@ -18,8 +18,13 @@ namespace ZenGarden {
     // Useful for fruits that should only grow in spring, etc.
     public List<Season> limitedGrowSeasons;
 
-    // What to harvest
-    public ThingDef harvestedThingDef;
+		// Customize what biomes this is forbidden to grow in
+		// Useful for fruits that should only grow in certain biomes
+		// Note: This is only calculated by the orchard zone, not the normal growing zones
+		public List<BiomeDef> forbiddenGrowBiomes;
+
+		// What to harvest
+		public ThingDef harvestedThingDef;
     // If SeedsPlease is installed, this is a seed that will drop when the secondary thing is harvested
     // This is a string because the ThingDef is added via a patch
     public string seedsPleaseSeedDef;

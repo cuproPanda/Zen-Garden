@@ -20,8 +20,7 @@ namespace ZenGarden {
 			ThingDef thingDef = null;
 			bool flag = false;
 			foreach (object current in Find.Selector.SelectedObjects) {
-				IPlantToGrowSettable plantToGrowSettable = current as IPlantToGrowSettable;
-				if (plantToGrowSettable != null) {
+				if (current is IPlantToGrowSettable plantToGrowSettable) {
 					if (thingDef != null && thingDef != plantToGrowSettable.GetPlantDefToGrow()) {
 						flag = true;
 						break;
@@ -52,35 +51,46 @@ namespace ZenGarden {
 			if (!settables.Contains(settable)) {
 				settables.Add(settable);
 			}
-			List<ThingDef> plants = ZenGardenMod.SecondaryPlants;
-			foreach (ThingDef current in plants) {
-				ThingDef localPlantDef = current;
-				string text = current.LabelCap;
-				if (current.plant.sowMinSkill > 0) {
-					string text2 = text;
-					text = string.Concat(new object[]
-					{
+
+			foreach (ThingDef current in ZenGardenMod.SecondaryPlants) {
+				if (IsValidPlant(current)) {
+					ThingDef localPlantDef = current;
+					string text = current.LabelCap;
+					if (current.plant.sowMinSkill > 0) {
+						string text2 = text;
+						text = string.Concat(new object[]
+						{
 							text2,
 							" (",
 							"MinSkill".Translate(),
 							": ",
 							current.plant.sowMinSkill,
 							")"
-					});
-				}
-				List<FloatMenuOption> menu = list;
-				Func<Rect, bool> extraPartOnGUI = (Rect rect) => Widgets.InfoCardButton(rect.x + 5f, rect.y + (rect.height - 24f) / 2f, localPlantDef);
-				menu.Add(new FloatMenuOption(text, delegate
-				{
-					string s = localPlantDef.defName;
-					for (int i = 0; i < settables.Count; i++) {
-						settables[i].SetPlantDefToGrow(localPlantDef);
+						});
 					}
-					WarnAsAppropriate(localPlantDef);
-				}, MenuOptionPriority.Default, null, null, 29f, extraPartOnGUI, null));
+					List<FloatMenuOption> menu = list;
+					Func<Rect, bool> extraPartOnGUI = (Rect rect) => Widgets.InfoCardButton(rect.x + 5f, rect.y + (rect.height - 24f) / 2f, localPlantDef);
+					menu.Add(new FloatMenuOption(text, delegate
+					{
+						string s = localPlantDef.defName;
+						for (int i = 0; i < settables.Count; i++) {
+							settables[i].SetPlantDefToGrow(localPlantDef);
+						}
+						WarnAsAppropriate(localPlantDef);
+					}, MenuOptionPriority.Default, null, null, 29f, extraPartOnGUI, null));
+				}
 			}
 			Find.WindowStack.Add(new FloatMenu(list));
 		}
+
+
+		private static bool IsValidPlant(ThingDef plant) {
+			if (plant.GetModExtension<SecondaryResource>().forbiddenGrowBiomes.NullOrEmpty() || !plant.GetModExtension<SecondaryResource>().forbiddenGrowBiomes.Contains(Find.VisibleMap.Biome)) {
+				return true;
+			}
+			return false;
+		}
+
 
 		public override bool InheritInteractionsFrom(Gizmo other) {
 			if (settables == null) {
@@ -89,6 +99,7 @@ namespace ZenGarden {
 			settables.Add(((Command_SetPlantWithSecondaryToGrow)other).settable);
 			return false;
 		}
+
 
 		private void WarnAsAppropriate(ThingDef plantDef) {
 			if (plantDef.plant.sowMinSkill > 0) {
@@ -104,6 +115,7 @@ namespace ZenGarden {
 				}).CapitalizeFirst(), null, null, null, null, null, false));
 			}
 		}
+
 
 		private bool IsPlantAvailable(ThingDef plantDef) {
 			List<ResearchProjectDef> sowResearchPrerequisites = plantDef.plant.sowResearchPrerequisites;

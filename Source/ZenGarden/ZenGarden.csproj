@@ -34,9 +34,9 @@
     <Reference Include="0Harmony">
       <HintPath>..\..\Assemblies\0Harmony.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp, Version=0.17.6351.26908, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Assembly-CSharp, Version=0.17.6362.34395, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\RimWorld1557Win\RimWorld1557Win_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\RimWorld_Beta18\RimWorld1722Win_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -65,7 +65,7 @@
     <Compile Include="Static\Static.cs" />
     <Compile Include="AI\WorkGiver_GrowerSowSecondary.cs" />
     <Compile Include="Static\ZenDefOf.cs" />
-    <Compile Include="Utils\WorkGiver_GrowerHarvest_HasJobOnCell.cs" />
+    <Compile Include="AI\WorkGiver_GrowerHarvest_HasJobOnCell.cs" />
     <Compile Include="Utils\ZenGardenMod.cs" />
     <Compile Include="Utils\Zone_Orchard.cs" />
   </ItemGroup>

@@ -3,304 +3,304 @@
 
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
-		<Operations>
+		<operations>
 			<li Class="ZenGarden.PatchOperationModDependent">
 				<modName>Kura's Extra Minerals</modName>
 			</li>
 			<li Class="PatchOperationInsert">
-				<xpath>/TerrainDefs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
-				<Order>Prepend</Order>
+				<xpath>/Defs/TerrainDef[@Name="ZEN_RoughBase"]</xpath>
+				<order>Prepend</order>
 				<value>
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughEmperadordark</DefName>
+						<defName>ZEN_GravelRoughEmperadordark</defName>
 						<label>rough emperadordark gravel</label>
 						<color>(72,46,38)</color>
-						<CostList>
+						<costList>
 							<BlocksEmperadordark>2</BlocksEmperadordark>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughBlueschist</DefName>
+						<defName>ZEN_GravelRoughBlueschist</defName>
 						<label>rough blueschist gravel</label>
 						<color>(159,191,214)</color>
-						<CostList>
+						<costList>
 							<BlocksBlueschist>2</BlocksBlueschist>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughSerpentinite</DefName>
+						<defName>ZEN_GravelRoughSerpentinite</defName>
 						<label>rough serpentinite gravel</label>
 						<color>(60,96,58)</color>
-						<CostList>
+						<costList>
 							<BlocksSerpentinite>2</BlocksSerpentinite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughObsidian</DefName>
+						<defName>ZEN_GravelRoughObsidian</defName>
 						<label>rough obsidian gravel</label>
 						<color>(30,30,30)</color>
-						<CostList>
+						<costList>
 							<BlocksObsidian>2</BlocksObsidian>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughAnorthosite</DefName>
+						<defName>ZEN_GravelRoughAnorthosite</defName>
 						<label>rough anorthosite gravel</label>
 						<color>(158,139,132)</color>
-						<CostList>
+						<costList>
 							<BlocksAnorthosite>2</BlocksAnorthosite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughBasalt</DefName>
+						<defName>ZEN_GravelRoughBasalt</defName>
 						<label>rough basalt gravel</label>
 						<color>(73, 86, 69)</color>
-						<CostList>
+						<costList>
 							<BlocksBasalt>2</BlocksBasalt>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughCharnockite</DefName>
+						<defName>ZEN_GravelRoughCharnockite</defName>
 						<label>rough charnockite gravel</label>
 						<color>(141,120,79)</color>
-						<CostList>
+						<costList>
 							<BlocksCharnockite>2</BlocksCharnockite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughDacite</DefName>
+						<defName>ZEN_GravelRoughDacite</defName>
 						<label>rough dacite gravel</label>
 						<color>(177,178,172)</color>
-						<CostList>
+						<costList>
 							<BlocksDacite>2</BlocksDacite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughLherzolite</DefName>
+						<defName>ZEN_GravelRoughLherzolite</defName>
 						<label>rough lherzolite gravel</label>
 						<color>(97,100,79)</color>
-						<CostList>
+						<costList>
 							<BlocksLherzolite>2</BlocksLherzolite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughMonzonite</DefName>
+						<defName>ZEN_GravelRoughMonzonite</defName>
 						<label>rough monzonite gravel</label>
 						<color>(193,184,186)</color>
-						<CostList>
+						<costList>
 							<BlocksMonzonite>2</BlocksMonzonite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughScoria</DefName>
+						<defName>ZEN_GravelRoughScoria</defName>
 						<label>rough scoria gravel</label>
 						<color>(87,80,73)</color>
-						<CostList>
+						<costList>
 							<BlocksScoria>2</BlocksScoria>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughSovite</DefName>
+						<defName>ZEN_GravelRoughSovite</defName>
 						<label>rough sovite gravel</label>
 						<color>(187,181,135)</color>
-						<CostList>
+						<costList>
 							<BlocksSovite>2</BlocksSovite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughChalk</DefName>
+						<defName>ZEN_GravelRoughChalk</defName>
 						<label>rough chalk gravel</label>
 						<color>(220,220,220)</color>
-						<CostList>
+						<costList>
 							<BlocksChalk>2</BlocksChalk>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughJaspillite</DefName>
+						<defName>ZEN_GravelRoughJaspillite</defName>
 						<label>rough jaspillite gravel</label>
 						<color>(208,103,84)</color>
-						<CostList>
+						<costList>
 							<BlocksJaspillite>2</BlocksJaspillite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughLignite</DefName>
+						<defName>ZEN_GravelRoughLignite</defName>
 						<label>rough lignite gravel</label>
 						<color>(82,72,70)</color>
-						<CostList>
+						<costList>
 							<BlocksLignite>2</BlocksLignite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughSiltstone</DefName>
+						<defName>ZEN_GravelRoughSiltstone</defName>
 						<label>rough siltstone gravel</label>
 						<color>(167,146,117)</color>
-						<CostList>
+						<costList>
 							<BlocksSiltstone>2</BlocksSiltstone>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_RoughBase">
-						<DefName>ZEN_GravelRoughMigmatite</DefName>
+						<defName>ZEN_GravelRoughMigmatite</defName>
 						<label>rough migmatite gravel</label>
 						<color>(136,146,155)</color>
-						<CostList>
+						<costList>
 							<BlocksMigmatite>2</BlocksMigmatite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 				</value>
 			</li>
-		</Operations>
+		</operations>
 	</Operation>
 	
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
-		<Operations>
+		<operations>
 			<li Class="ZenGarden.PatchOperationModDependent">
 				<modName>Kura's Extra Minerals</modName>
 			</li>
 			<li Class="PatchOperationInsert">
-				<xpath>/TerrainDefs/TerrainDef[@Name="ZEN_NormalBase"]</xpath>
-				<Order>Prepend</Order>
+				<xpath>/Defs/TerrainDef[@Name="ZEN_NormalBase"]</xpath>
+				<order>Prepend</order>
 				<value>
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalEmperadordark</DefName>
+						<defName>ZEN_GravelNormalEmperadordark</defName>
 						<label>unraked emperadordark gravel</label>
 						<color>(72,46,38)</color>
-						<CostList>
+						<costList>
 							<BlocksEmperadordark>2</BlocksEmperadordark>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalBlueschist</DefName>
+						<defName>ZEN_GravelNormalBlueschist</defName>
 						<label>unraked blueschist gravel</label>
 						<color>(159,191,214)</color>
-						<CostList>
+						<costList>
 							<BlocksBlueschist>2</BlocksBlueschist>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalSerpentinite</DefName>
+						<defName>ZEN_GravelNormalSerpentinite</defName>
 						<label>unraked serpentinite gravel</label>
 						<color>(60,96,58)</color>
-						<CostList>
+						<costList>
 							<BlocksSerpentinite>2</BlocksSerpentinite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalObsidian</DefName>
+						<defName>ZEN_GravelNormalObsidian</defName>
 						<label>unraked obsidian gravel</label>
 						<color>(30,30,30)</color>
-						<CostList>
+						<costList>
 							<BlocksObsidian>2</BlocksObsidian>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalAnorthosite</DefName>
+						<defName>ZEN_GravelNormalAnorthosite</defName>
 						<label>unraked anorthosite gravel</label>
 						<color>(158,139,132)</color>
-						<CostList>
+						<costList>
 							<BlocksAnorthosite>2</BlocksAnorthosite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalBasalt</DefName>
+						<defName>ZEN_GravelNormalBasalt</defName>
 						<label>unraked basalt gravel</label>
 						<color>(73, 86, 69)</color>
-						<CostList>
+						<costList>
 							<BlocksBasalt>2</BlocksBasalt>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalCharnockite</DefName>
+						<defName>ZEN_GravelNormalCharnockite</defName>
 						<label>unraked charnockite gravel</label>
 						<color>(141,120,79)</color>
-						<CostList>
+						<costList>
 							<BlocksCharnockite>2</BlocksCharnockite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalDacite</DefName>
+						<defName>ZEN_GravelNormalDacite</defName>
 						<label>unraked dacite gravel</label>
 						<color>(177,178,172)</color>
-						<CostList>
+						<costList>
 							<BlocksDacite>2</BlocksDacite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalLherzolite</DefName>
+						<defName>ZEN_GravelNormalLherzolite</defName>
 						<label>unraked lherzolite gravel</label>
 						<color>(97,100,79)</color>
-						<CostList>
+						<costList>
 							<BlocksLherzolite>2</BlocksLherzolite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalMonzonite</DefName>
+						<defName>ZEN_GravelNormalMonzonite</defName>
 						<label>unraked monzonite gravel</label>
 						<color>(193,184,186)</color>
-						<CostList>
+						<costList>
 							<BlocksMonzonite>2</BlocksMonzonite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalScoria</DefName>
+						<defName>ZEN_GravelNormalScoria</defName>
 						<label>unraked scoria gravel</label>
 						<color>(87,80,73)</color>
-						<CostList>
+						<costList>
 							<BlocksScoria>2</BlocksScoria>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalSovite</DefName>
+						<defName>ZEN_GravelNormalSovite</defName>
 						<label>unraked sovite gravel</label>
 						<color>(187,181,135)</color>
-						<CostList>
+						<costList>
 							<BlocksSovite>2</BlocksSovite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalChalk</DefName>
+						<defName>ZEN_GravelNormalChalk</defName>
 						<label>unraked chalk gravel</label>
 						<color>(220,220,220)</color>
-						<CostList>
+						<costList>
 							<BlocksChalk>2</BlocksChalk>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalJaspillite</DefName>
+						<defName>ZEN_GravelNormalJaspillite</defName>
 						<label>unraked jaspillite gravel</label>
 						<color>(208,103,84)</color>
-						<CostList>
+						<costList>
 							<BlocksJaspillite>2</BlocksJaspillite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalLignite</DefName>
+						<defName>ZEN_GravelNormalLignite</defName>
 						<label>unraked lignite gravel</label>
 						<color>(82,72,70)</color>
-						<CostList>
+						<costList>
 							<BlocksLignite>2</BlocksLignite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalSiltstone</DefName>
+						<defName>ZEN_GravelNormalSiltstone</defName>
 						<label>unraked siltstone gravel</label>
 						<color>(167,146,117)</color>
-						<CostList>
+						<costList>
 							<BlocksSiltstone>2</BlocksSiltstone>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 					<TerrainDef ParentName="ZEN_NormalBase">
-						<DefName>ZEN_GravelNormalMigmatite</DefName>
+						<defName>ZEN_GravelNormalMigmatite</defName>
 						<label>unraked migmatite gravel</label>
 						<color>(136,146,155)</color>
-						<CostList>
+						<costList>
 							<BlocksMigmatite>2</BlocksMigmatite>
-						</CostList>
+						</costList>
 					</TerrainDef>	
 				</value>
 			</li>
-		</Operations>
+		</operations>
 	</Operation>
 
 </Patch>

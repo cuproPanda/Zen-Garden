@@ -8,9 +8,7 @@ namespace ZenGarden {
 
     private DesignationDef designationDef;
 
-    public override int DraggableDimensions {
-      get { return 2; }
-    }
+		public override int DraggableDimensions => 2;
 
 
     public Designator_PlantsHarvestSecondary() {

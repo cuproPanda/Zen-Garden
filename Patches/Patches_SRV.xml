@@ -3,18 +3,22 @@
 
 	<Operation Class="PatchOperationAdd">
 		<success>Always</success>
-		<xpath>/RecipeDefs/RecipeDef[defName="POW_MakeVinegarJuice"]/ingredients/li/filter/thingDefs</xpath>
+		<xpath>/Defs/RecipeDef[defName="SRV_MakeVinegarJuice"]/ingredients/li/filter/thingDefs</xpath>
 		<value>
 			<li>ZEN_Cherries</li>
+			<li>ZEN_Persimmon</li>
+			<li>ZEN_Crabapples</li>
 		</value>
 		<order>Append</order>
 	</Operation>
 	
 	<Operation Class="PatchOperationAdd">
 		<success>Always</success>
-		<xpath>/RecipeDefs/RecipeDef[defName="POW_MakeVinegarJuice"]/fixedIngredientFilter/thingDefs</xpath>
+		<xpath>/Defs/RecipeDef[defName="SRV_MakeVinegarJuice"]/fixedIngredientFilter/thingDefs</xpath>
 		<value>
 			<li>ZEN_Cherries</li>
+			<li>ZEN_Persimmon</li>
+			<li>ZEN_Crabapples</li>
 		</value>
 		<order>Append</order>
 	</Operation>

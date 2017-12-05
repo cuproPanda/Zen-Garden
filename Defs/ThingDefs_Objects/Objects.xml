@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 	<ThingDef Name="BuildingBase" Abstract="True">
 		<category>Building</category>
@@ -19,7 +19,7 @@
 				<compClass>CompQuality</compClass>
 			</li>
 		</comps>
-		<DesignationCategory>Furniture</DesignationCategory>
+		<designationCategory>Furniture</designationCategory>
 		<minifiedDef>MinifiedFurniture</minifiedDef>
 		<tradeTags>
 			<li>Furniture</li>
@@ -43,7 +43,6 @@
 		</statBases>
 		<building>
 			<isInert>true</isInert>
-			<ignoreNeedsPower>true</ignoreNeedsPower>
 		</building>
 		<rotatable>false</rotatable>
 		<neverMultiSelect>true</neverMultiSelect>
@@ -114,7 +113,6 @@
 		<coversFloor>true</coversFloor>
 		<building>
 			<isInert>true</isInert>
-			<ignoreNeedsPower>true</ignoreNeedsPower>
 		</building>
 		<rotatable>false</rotatable>
 		<neverMultiSelect>true</neverMultiSelect>
@@ -187,7 +185,7 @@
 		<defName>ZEN_FlowerArch</defName>
 		<thingClass>ZenGarden.Building_FlowerArch</thingClass>
 		<label>flower arch</label>
-		<Description>A decorative arch for passing through. Also goes well with a marriage spot. Vines grow when the temperature permits, and they bloom in the spring and summer.</Description>
+		<description>A decorative arch for passing through. Also goes well with a marriage spot. Vines grow when the temperature permits, and they bloom in the spring and summer.</description>
 		<graphicData>
 			<texPath>Cupro/Object/FlowerArch/FlowerArch_Plain</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -206,9 +204,9 @@
 		</costList>
 		<constructEffect>ConstructMetal</constructEffect>
 		<useHitPoints>False</useHitPoints>
-		<Size>(2,1)</Size>
-		<DesignationCategory>Misc</DesignationCategory>
-		<Passability>Standable</Passability>
+		<size>(2,1)</size>
+		<designationCategory>Misc</designationCategory>
+		<passability>Standable</passability>
 		<building>
 			<sowTag>SupportPlantsOnly</sowTag>
 			<canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
@@ -624,7 +622,7 @@
 		<placingDraggableDimensions>1</placingDraggableDimensions>
 	</ThingDef>
 
-</ThingDefs>
+</Defs>
 
 
 

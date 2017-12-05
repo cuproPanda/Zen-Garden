@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Resources>
+<Defs>
 
 	<ThingDef ParentName="ResourceVerbBase">
 		<defName>ZEN_CherryWood</defName>
@@ -18,8 +18,8 @@
 			<MaxHitPoints>150</MaxHitPoints>
 			<Flammability>0.95</Flammability>
 			<DeteriorationRate>1.9</DeteriorationRate>
-			<MeleeWeapon_DamageAmount>8</MeleeWeapon_DamageAmount>
-			<MeleeWeapon_Cooldown>2.2</MeleeWeapon_Cooldown>
+			<MeleeWeapon_DamageMultiplier>8</MeleeWeapon_DamageMultiplier>
+			<MeleeWeapon_CooldownMultiplier>2.2</MeleeWeapon_CooldownMultiplier>
 			<SharpDamageMultiplier>0.3</SharpDamageMultiplier>
 			<BluntDamageMultiplier>0.8</BluntDamageMultiplier>
 		</statBases>
@@ -43,7 +43,7 @@
 				<Flammability>0.95</Flammability>
 				<WorkToMake>0.75</WorkToMake>
 				<DoorOpenSpeed>1.2</DoorOpenSpeed>
-				<MeleeWeapon_Cooldown>0.85</MeleeWeapon_Cooldown>
+				<MeleeWeapon_CooldownMultiplier>0.85</MeleeWeapon_CooldownMultiplier>
 			</statFactors>
 		</stuffProps>
 		<isBodyPartOrImplant>true</isBodyPartOrImplant>
@@ -79,8 +79,8 @@
 			<MaxHitPoints>175</MaxHitPoints>
 			<Flammability>0.85</Flammability>
 			<DeteriorationRate>2</DeteriorationRate>
-			<MeleeWeapon_DamageAmount>8</MeleeWeapon_DamageAmount>
-			<MeleeWeapon_Cooldown>2.2</MeleeWeapon_Cooldown>
+			<MeleeWeapon_DamageMultiplier>8</MeleeWeapon_DamageMultiplier>
+			<MeleeWeapon_CooldownMultiplier>2.2</MeleeWeapon_CooldownMultiplier>
 			<SharpDamageMultiplier>0.3</SharpDamageMultiplier>
 			<BluntDamageMultiplier>0.8</BluntDamageMultiplier>
 		</statBases>
@@ -104,7 +104,7 @@
 				<Flammability>0.95</Flammability>
 				<WorkToMake>1.05</WorkToMake>
 				<DoorOpenSpeed>1.15</DoorOpenSpeed>
-				<MeleeWeapon_Cooldown>0.85</MeleeWeapon_Cooldown>
+				<MeleeWeapon_CooldownMultiplier>0.85</MeleeWeapon_CooldownMultiplier>
 			</statFactors>
 		</stuffProps>
 		<isBodyPartOrImplant>true</isBodyPartOrImplant>
@@ -123,7 +123,7 @@
 		</verbs>
 	</ThingDef>
 
-</Resources>
+</Defs>
 
 
 

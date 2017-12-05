@@ -31,18 +31,19 @@ namespace ZenGarden {
 			wantedPlantDef = null;
 			List<Zone> zonesList = pawn.Map.zoneManager.AllZones;
 			for (int z = 0; z < zonesList.Count; z++) {
-				Zone_Orchard orchardZone = zonesList[z] as Zone_Orchard;
-				if (orchardZone != null) {
+				if (zonesList[z] is Zone_Orchard orchardZone) {
 					if (orchardZone.cells.Count == 0) {
 						Log.ErrorOnce("Orchard zone has 0 cells: " + orchardZone, -563487);
 					}
-					else if (!orchardZone.ContainsStaticFire) {
-						if (pawn.CanReach(orchardZone.Cells[0], PathEndMode.OnCell, maxDanger, false, TraverseMode.ByPawn)) {
-							for (int k = 0; k < orchardZone.cells.Count; k++) {
-								yield return orchardZone.cells[k];
+					else if (ExtraRequirements(orchardZone, pawn)) {
+						if (!orchardZone.ContainsStaticFire) {
+							if (pawn.CanReach(orchardZone.Cells[0], PathEndMode.OnCell, maxDanger, false, TraverseMode.ByPawn)) {
+								for (int k = 0; k < orchardZone.cells.Count; k++) {
+									yield return orchardZone.cells[k];
+								}
+								wantedPlantDef = null;
 							}
-							wantedPlantDef = null;
-						}
+						} 
 					}
 				}
 			}
@@ -103,8 +104,7 @@ namespace ZenGarden {
 			else {
 				Thing thing2 = GenPlant.AdjacentSowBlocker(wantedPlantDef, c, pawn.Map);
 				if (thing2 != null) {
-					Plant plant2 = thing2 as Plant;
-					if (plant2 != null && pawn.CanReserve(plant2, 1, -1, null, false) && !plant2.IsForbidden(pawn)) {
+					if (thing2 is Plant plant2 && pawn.CanReserve(plant2, 1, -1, null, false) && !plant2.IsForbidden(pawn)) {
 						IPlantToGrowSettable plantToGrowSettable = plant2.Position.GetPlantToGrowSettable(plant2.Map);
 						if (plantToGrowSettable == null || plantToGrowSettable.GetPlantDefToGrow() != plant2.def) {
 							return new Job(JobDefOf.CutPlant, plant2);
