@@ -61,7 +61,7 @@
 				</modList>
 			</li>
 			<li Class="PatchOperationAdd">
-				<xpath>/Defs/TerrainDef[@Name="AS_ZEN_Rough"]/defNames</xpath>
+				<xpath>/Defs/ArchitectSense.DesignationSubCategoryDef[@Name="AS_ZEN_Rough"]/defNames</xpath>
 				<value>
 					<li>ZEN_GravelRoughClaystone</li>
 					<li>ZEN_GravelRoughAndesite</li>
@@ -76,7 +76,7 @@
 				</value>
 			</li>
 			<li Class="PatchOperationAdd">
-				<xpath>/Defs/TerrainDef[@Name="AS_ZEN_Normal"]/defNames</xpath>
+				<xpath>/Defs/ArchitectSense.DesignationSubCategoryDef[@Name="AS_ZEN_Normal"]/defNames</xpath>
 				<value>
 					<li>ZEN_GravelNormalClaystone</li>
 					<li>ZEN_GravelNormalAndesite</li>
@@ -103,7 +103,7 @@
 				</modList>
 			</li>
 			<li Class="PatchOperationAdd">
-				<xpath>/Defs/TerrainDef[@Name="AS_ZEN_Rough"]/defNames</xpath>
+				<xpath>/Defs/ArchitectSense.DesignationSubCategoryDef[@Name="AS_ZEN_Rough"]/defNames</xpath>
 				<value>
 					<li>ZEN_GravelRoughEmperadordark</li>
 					<li>ZEN_GravelRoughBlueschist</li>
@@ -125,7 +125,7 @@
 				</value>
 			</li>
 			<li Class="PatchOperationAdd">
-				<xpath>/Defs/TerrainDef[@Name="AS_ZEN_Normal"]/defNames</xpath>
+				<xpath>/Defs/ArchitectSense.DesignationSubCategoryDef[@Name="AS_ZEN_Normal"]/defNames</xpath>
 				<value>
 					<li>ZEN_GravelNormalEmperadordark</li>
 					<li>ZEN_GravelNormalBlueschist</li>
