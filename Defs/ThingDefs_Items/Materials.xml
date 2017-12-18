@@ -16,10 +16,8 @@
 			<MarketValue>1.6</MarketValue>
 			<Mass>0.4</Mass>
 			<MaxHitPoints>150</MaxHitPoints>
-			<Flammability>0.95</Flammability>
-			<DeteriorationRate>1.9</DeteriorationRate>
-			<MeleeWeapon_DamageMultiplier>8</MeleeWeapon_DamageMultiplier>
-			<MeleeWeapon_CooldownMultiplier>2.2</MeleeWeapon_CooldownMultiplier>
+			<Flammability>1.0</Flammability>
+			<DeteriorationRate>1.0</DeteriorationRate>
 			<SharpDamageMultiplier>0.3</SharpDamageMultiplier>
 			<BluntDamageMultiplier>0.8</BluntDamageMultiplier>
 		</statBases>
@@ -28,6 +26,7 @@
 			<categories>
 				<li>Woody</li>
 			</categories>
+      <commonality>0.35</commonality>
 			<color>(211,110,84)</color>
 			<constructEffect>ConstructWood</constructEffect>
 			<appearance>Planks</appearance>
@@ -40,8 +39,9 @@
 			<statFactors>
 				<MaxHitPoints>0.6</MaxHitPoints>
 				<Beauty>1.4</Beauty>
-				<Flammability>0.95</Flammability>
-				<WorkToMake>0.75</WorkToMake>
+				<Flammability>1.0</Flammability>
+        <WorkToMake>0.75</WorkToMake>
+				<WorkToBuild>0.7</WorkToBuild>
 				<DoorOpenSpeed>1.2</DoorOpenSpeed>
 				<MeleeWeapon_CooldownMultiplier>0.85</MeleeWeapon_CooldownMultiplier>
 			</statFactors>
@@ -53,13 +53,15 @@
 		<techHediffsTags>
 			<li>Poor</li>
 		</techHediffsTags>
-		<verbs>
-			<li>
-				<verbClass>Verb_MeleeAttack</verbClass>
-				<hasStandardCommand>true</hasStandardCommand>
-				<meleeDamageDef>Blunt</meleeDamageDef>
-			</li>
-		</verbs>
+		<tools>
+      <li>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2.2</cooldownTime>
+      </li>
+    </tools>
 	</ThingDef>
 
 	<ThingDef ParentName="ResourceVerbBase">
@@ -78,17 +80,16 @@
 			<Mass>0.45</Mass>
 			<MaxHitPoints>175</MaxHitPoints>
 			<Flammability>0.85</Flammability>
-			<DeteriorationRate>2</DeteriorationRate>
-			<MeleeWeapon_DamageMultiplier>8</MeleeWeapon_DamageMultiplier>
-			<MeleeWeapon_CooldownMultiplier>2.2</MeleeWeapon_CooldownMultiplier>
+			<DeteriorationRate>1.0</DeteriorationRate>
 			<SharpDamageMultiplier>0.3</SharpDamageMultiplier>
-			<BluntDamageMultiplier>0.8</BluntDamageMultiplier>
+			<BluntDamageMultiplier>0.85</BluntDamageMultiplier>
 		</statBases>
 		<stuffProps>
 			<stuffAdjective>ebony</stuffAdjective>
 			<categories>
 				<li>Woody</li>
 			</categories>
+      <commonality>0.2</commonality>
 			<color>(45,42,40)</color>
 			<constructEffect>ConstructWood</constructEffect>
 			<appearance>Planks</appearance>
@@ -101,7 +102,7 @@
 			<statFactors>
 				<MaxHitPoints>0.75</MaxHitPoints>
 				<Beauty>1.8</Beauty>
-				<Flammability>0.95</Flammability>
+				<Flammability>0.85</Flammability>
 				<WorkToMake>1.05</WorkToMake>
 				<DoorOpenSpeed>1.15</DoorOpenSpeed>
 				<MeleeWeapon_CooldownMultiplier>0.85</MeleeWeapon_CooldownMultiplier>
@@ -114,13 +115,15 @@
 		<techHediffsTags>
 			<li>Poor</li>
 		</techHediffsTags>
-		<verbs>
-			<li>
-				<verbClass>Verb_MeleeAttack</verbClass>
-				<hasStandardCommand>true</hasStandardCommand>
-				<meleeDamageDef>Blunt</meleeDamageDef>
-			</li>
-		</verbs>
+		<tools>
+      <li>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2.2</cooldownTime>
+      </li>
+    </tools>
 	</ThingDef>
 
 </Defs>

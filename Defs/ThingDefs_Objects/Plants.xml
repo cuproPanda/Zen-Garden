@@ -33,6 +33,7 @@
 				<limitedGrowSeasons>
 					<li>Spring</li>
 					<li>Summer</li>
+					<li>PermanentSummer</li>
 				</limitedGrowSeasons>
 				<forbiddenGrowBiomes>
 					<li>Tundra</li>
@@ -76,6 +77,7 @@
 				<limitedGrowSeasons>
 					<li>Fall</li>
 					<li>Winter</li>
+					<li>PermanentWinter</li>
 				</limitedGrowSeasons>
 				<forbiddenGrowBiomes>
 					<li>Desert</li>
@@ -118,6 +120,7 @@
 				<bloomingGraphicPath>Cupro/Object/Plant/CrabappleTree_Blooming</bloomingGraphicPath>
 				<limitedGrowSeasons>
 					<li>Summer</li>
+					<li>PermanentSummer</li>
 					<li>Fall</li>
 				</limitedGrowSeasons>
 				<forbiddenGrowBiomes>
