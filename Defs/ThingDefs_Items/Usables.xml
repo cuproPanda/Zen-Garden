@@ -6,6 +6,7 @@
 		<label>cherries</label>
 		<description>Sweet and tart cherries. Nice to eat, even when raw.</description>
 		<graphicData>
+			<graphicClass>Graphic_StackCount</graphicClass>
 			<texPath>Cupro/Item/Usable/Cherries</texPath>
 		</graphicData>
 		<statBases>
@@ -30,6 +31,7 @@
 		<label>persimmon</label>
 		<description>A soft and sweet fruit. Nice to eat, even when raw.</description>
 		<graphicData>
+			<graphicClass>Graphic_StackCount</graphicClass>
 			<texPath>Cupro/Item/Usable/Persimmon</texPath>
 		</graphicData>
 		<statBases>
@@ -55,6 +57,7 @@
 		<label>crabapple</label>
 		<description>A tiny variety of apple. The apples are very sour unless cooked.</description>
 		<graphicData>
+			<graphicClass>Graphic_StackCount</graphicClass>
 			<texPath>Cupro/Item/Usable/Crabapples</texPath>
 		</graphicData>
 		<statBases>

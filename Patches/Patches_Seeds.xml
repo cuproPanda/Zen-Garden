@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- If SeedsPlease is found, add seeds -->
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="ZenGarden.PatchOperationModDependent">
+				<modName>SeedsPlease</modName>
+			</li>
+			<li Class="PatchOperationInsert">
+				<xpath>/Defs/Def[@Name="ZEN_DefInsertion"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<SeedsPlease.SeedDef ParentName="SeedBase">
+						<defName>ZEN_SeedCherry</defName>
+						<label>cherry seeds</label>
+						<plant>ZEN_PlantTreeCherry</plant>
+						<graphicData><texPath>Cupro/Item/Material/Seeds/SeedCherries</texPath></graphicData>
+					</SeedsPlease.SeedDef>
+
+					<SeedsPlease.SeedDef ParentName="SeedBase">
+						<defName>ZEN_SeedCrabapple</defName>
+						<label>crabapple seeds</label>
+						<plant>ZEN_PlantTreeCrabapple</plant>
+						<graphicData><texPath>Cupro/Item/Material/Seeds/SeedCrabapples</texPath></graphicData>
+					</SeedsPlease.SeedDef>
+
+					<SeedsPlease.SeedDef ParentName="SeedBase">
+						<defName>ZEN_SeedPersimmon</defName>
+						<label>persimmon seeds</label>
+						<plant>ZEN_PlantTreePersimmon</plant>
+						<graphicData><texPath>Cupro/Item/Material/Seeds/SeedNotAPumpkin</texPath></graphicData>
+					</SeedsPlease.SeedDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="ZenGarden.PatchOperationModDependent">
+				<modName>SeedsPlease</modName>
+			</li>
+			<li Class="PatchOperationInsert">
+				<xpath>/Defs/Def[@Name="ZEN_DefInsertion"]</xpath>
+				<order>Prepend</order>
+				<value>					
+					<RecipeDef ParentName="ExtractSeed">
+						<defName>ZEN_ExtractSeedCherry</defName>
+						<label>extract cherry seeds</label>
+						<description>Extract seeds from cherries.</description>
+						<recipeUsers>
+							<li>PlantProcessingTable</li>
+						</recipeUsers>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ZEN_Cherries</li>
+									</thingDefs>
+								</filter>
+								<count>10</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ZEN_Cherries</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ZEN_SeedCherry>5</ZEN_SeedCherry>
+						</products>
+					</RecipeDef>
+
+					<RecipeDef ParentName="ExtractSeed">
+						<defName>ZEN_ExtractSeedCrabapple</defName>
+						<label>extract crabapple seeds</label>
+						<description>Extract seeds from crabapples.</description>
+						<recipeUsers>
+							<li>PlantProcessingTable</li>
+						</recipeUsers>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ZEN_Crabapples</li>
+									</thingDefs>
+								</filter>
+								<count>10</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ZEN_Crabapples</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ZEN_SeedCrabapple>5</ZEN_SeedCrabapple>
+						</products>
+					</RecipeDef>
+
+					<RecipeDef ParentName="ExtractSeed">
+						<defName>ZEN_ExtractSeedPersimmon</defName>
+						<label>extract persimmon seeds</label>
+						<description>Extract seeds from persimmons.</description>
+						<recipeUsers>
+							<li>PlantProcessingTable</li>
+						</recipeUsers>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ZEN_Persimmon</li>
+									</thingDefs>
+								</filter>
+								<count>10</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ZEN_Persimmon</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ZEN_SeedPersimmon>5</ZEN_SeedPersimmon>
+						</products>
+					</RecipeDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>
