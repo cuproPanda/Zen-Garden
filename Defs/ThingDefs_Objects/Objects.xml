@@ -152,6 +152,7 @@
 		<pathCost>30</pathCost>
 		<fillPercent>0.30</fillPercent>
 		<building>
+      <isJoySource>true</isJoySource>
 			<isSittable>true</isSittable>
 		</building>
 	</ThingDef>

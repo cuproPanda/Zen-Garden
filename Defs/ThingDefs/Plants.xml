@@ -23,8 +23,8 @@
 
 	<ThingDef ParentName="ZEN_OrchardTreeBase">
 		<defName>ZEN_PlantTreeCherry</defName>
-		<label>cherry tree</label>
-		<description>A vibrant and colorful tree often grown for decoration. Produces cherries in the spring and summer. Can also be chopped down for cherrywood.</description>
+		<label>zen cherry tree</label>
+		<description>A vibrant and colorful tree often grown for decoration. Produces zen cherries in the spring and summer. Can also be chopped down for cherrywood.</description>
 		<modExtensions>
 			<li Class="ZenGarden.SecondaryResource">
 				<growDays>4</growDays>

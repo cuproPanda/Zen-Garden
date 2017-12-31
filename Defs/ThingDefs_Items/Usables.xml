@@ -3,7 +3,7 @@
 
 	<ThingDef ParentName="PlantFoodRawBase">
 		<defName>ZEN_Cherries</defName>
-		<label>cherries</label>
+		<label>zen cherries</label>
 		<description>Sweet and tart cherries. Nice to eat, even when raw.</description>
 		<graphicData>
 			<graphicClass>Graphic_StackCount</graphicClass>
