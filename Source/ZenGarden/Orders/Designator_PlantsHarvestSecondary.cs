@@ -38,7 +38,7 @@ namespace ZenGarden {
         return false;
       }
       // If the secondary resource isn't harvestable
-      PlantWithSecondary plant = (PlantWithSecondary)t;
+      PlantWithSecondary plant = t as PlantWithSecondary;
       if (!plant.Sec_HarvestableNow) {
         return "ZEN_MustDesignateHarvestableSecondary".Translate();
       }
@@ -50,7 +50,7 @@ namespace ZenGarden {
       if (!c.InBounds(Map) || c.Fogged(Map)) {
         return false;
       }
-      PlantWithSecondary plant = (PlantWithSecondary)c.GetPlant(Map);
+			PlantWithSecondary plant = c.GetPlant(Map) as PlantWithSecondary;
       if (plant == null) {
         return "ZEN_MustDesignatePlantsWithSecondary".Translate();
       }
